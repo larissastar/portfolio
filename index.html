@@ -1,0 +1,599 @@
+
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body, button, input, select, td, th, span, div, p, h1, h2, h3, h4, label {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif !important;
+}
+
+/* ── LANDING PAGE ── */
+#landingPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 600px;
+  background: #2b2b2b;
+  text-align: center;
+  padding: 40px 24px;
+}
+.landing-title {
+  font-size: 28px;
+  font-weight: 400;
+  color: #fff;
+  margin-bottom: 28px;
+  letter-spacing: 0.01em;
+}
+.landing-link {
+  font-size: 18px;
+  color: #fff;
+  text-decoration: underline;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+}
+.landing-link:hover { opacity: 0.75; }
+
+/* ── DASHBOARD PAGE ── */
+#dashboardPage { display: none; }
+.db { background: #f5f5f5; min-height: 600px; }
+.hdr { background: #1a1a1a; height: 40px; display: flex; align-items: center; padding: 0 16px; }
+.hdr-back { background: none; border: none; cursor: pointer; color: rgba(255,255,255,0.8); font-size: 20px; padding: 0 10px 0 0; line-height: 1; }
+.hdr-back:hover { color: #fff; }
+.hdr-title { font-size: 13px; font-weight: 600; color: #fff; margin: 0 16px 0 0; white-space: nowrap; letter-spacing: 0.01em; }
+.hdr-icons { margin-left: auto; display: flex; gap: 4px; }
+.hdr-btn { background: none; border: none; cursor: pointer; color: rgba(255,255,255,0.7); padding: 6px; font-size: 14px; line-height: 1; }
+.hdr-btn:hover { color: #fff; }
+.filter-bar { height: 38px; border-bottom: 1px solid #ddd; display: flex; align-items: center; padding: 0 24px; gap: 8px; background: #fff; }
+.filter-bar span { font-size: 13px; color: #888; }
+
+/* Tabs */
+.tab-bar { background: #fff; border-bottom: 1px solid #ddd; padding: 0 24px; display: flex; overflow-x: auto; }
+.tab-btn { background: none; border: none; border-bottom: 3px solid transparent; margin-bottom: -1px; padding: 14px 22px; font-size: 14px; font-weight: 400; color: #666; cursor: pointer; white-space: nowrap; transition: color 120ms; outline: none; }
+.tab-btn:hover { color: #111; }
+.tab-btn.active { font-weight: 700; color: #111; border-bottom: 3px solid #111; }
+
+.org-bar { padding: 14px 24px 12px; background: #fff; border-bottom: 1px solid #ddd; }
+.org-label { font-size: 11px; font-weight: 600; color: #555; display: block; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.05em; }
+.org-sel { font-size: 13px; color: #222; background: #fff; border: 1px solid #bbb; border-radius: 6px; padding: 6px 30px 6px 10px; cursor: pointer; appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' stroke='%23666' stroke-width='1.5' fill='none'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 8px center; min-width: 180px; }
+
+.main { padding: 24px; }
+
+/* KPI Cards */
+.kpi-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; margin-bottom: 28px; }
+.kpi-card { background: #fff; border: 1.5px solid #d0d0d0; border-radius: 8px; padding: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+.kpi-card:hover { border-color: #aaa; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+.kpi-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 14px; }
+.kpi-icon { width: 34px; height: 34px; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; border: 1px solid; }
+.kpi-icon.ok   { background: #e8f4f8; border-color: #b0d8e8; color: #00688c; }
+.kpi-icon.risk { background: #fdf5e6; border-color: #f0d49a; color: #8a5d00; }
+.kpi-icon.crit { background: #fdecea; border-color: #f0b8b2; color: #b3311f; }
+.trend-badge { font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 12px; display: flex; align-items: center; gap: 3px; border: 1px solid; }
+.trend-up     { background: #e8f4f8; border-color: #b0d8e8; color: #00688c; }
+.trend-down   { background: #fdecea; border-color: #f0b8b2; color: #b3311f; }
+.trend-stable { background: #f0f0f0; border-color: #ccc; color: #555; }
+.kpi-val    { font-size: 28px; font-weight: 700; color: #111; line-height: 1.1; margin-bottom: 4px; }
+.kpi-target { font-size: 11px; color: #777; margin-bottom: 8px; }
+.kpi-name   { font-size: 13px; font-weight: 600; color: #222; margin-bottom: 3px; }
+.kpi-owner  { font-size: 11px; color: #888; margin-bottom: 10px; }
+.badges { display: flex; flex-wrap: wrap; gap: 4px; }
+.badge { font-size: 10px; font-weight: 600; padding: 3px 8px; border-radius: 10px; display: inline-flex; align-items: center; gap: 4px; border: 1px solid; }
+.badge-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+.badge-in  { background: #edf7e4; border-color: #b5dca0; color: #3a6e1a; }
+.badge-out { background: #fdecea; border-color: #f0b8b2; color: #b3311f; }
+.badge-p2  { background: #fdf5e6; border-color: #f0d49a; color: #8a5d00; }
+
+/* Charts — responsive grid */
+.chart-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-bottom: 24px;
+}
+.chart-panel { background: #fff; border: 1.5px solid #d0d0d0; border-radius: 8px; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); min-width: 0; }
+.chart-title { font-size: 15px; font-weight: 700; color: #111; margin-bottom: 4px; }
+.chart-sub   { font-size: 12px; color: #777; margin-bottom: 14px; }
+.legend { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 12px; }
+.legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: #555; }
+.legend-dot  { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+
+/* Section cards */
+.section-card { background: #fff; border: 1.5px solid #d0d0d0; border-radius: 8px; overflow: hidden; margin-bottom: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+.section-hdr  { padding: 16px 20px; border-bottom: 1px solid #e8e8e8; }
+.section-hdr h3 { font-size: 15px; font-weight: 700; color: #111; }
+.section-hdr p  { font-size: 12px; color: #777; margin-top: 3px; }
+.compliance-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; padding: 16px; }
+.comp-item { display: flex; align-items: flex-start; gap: 10px; padding: 12px; border: 1.5px solid #d0d0d0; border-radius: 7px; background: #fafafa; }
+.comp-label { font-size: 13px; font-weight: 600; color: #222; }
+.comp-val   { font-size: 12px; color: #555; margin-top: 2px; }
+.comp-owner { font-size: 11px; color: #888; margin-top: 1px; }
+
+table { width: 100%; border-collapse: collapse; }
+th { padding: 10px 16px; text-align: left; font-size: 12px; font-weight: 700; color: #444; background: #f7f7f7; border-bottom: 1.5px solid #d0d0d0; text-transform: uppercase; letter-spacing: 0.04em; }
+td { padding: 11px 16px; font-size: 13px; color: #222; border-bottom: 1px solid #eee; }
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: #fafafa; }
+.sbadge { font-size: 10px; font-weight: 600; padding: 3px 8px; border-radius: 10px; border: 1px solid; }
+.s-ok  { background: #e8f4f8; border-color: #b0d8e8; color: #00688c; }
+.s-mon { background: #fdf5e6; border-color: #f0d49a; color: #8a5d00; }
+.s-act { background: #fdecea; border-color: #f0b8b2; color: #b3311f; }
+.sev-h { background: #fdecea; border-color: #f0b8b2; color: #b3311f; font-size: 10px; font-weight: 600; padding: 2px 7px; border-radius: 8px; border: 1px solid; }
+.sev-m { background: #fdf5e6; border-color: #f0d49a; color: #8a5d00; font-size: 10px; font-weight: 600; padding: 2px 7px; border-radius: 8px; border: 1px solid; }
+.sev-l { background: #f0f0f0; border-color: #ccc; color: #555; font-size: 10px; font-weight: 600; padding: 2px 7px; border-radius: 8px; border: 1px solid; }
+</style>
+
+<!-- LANDING PAGE -->
+<div id="landingPage">
+  <div class="landing-title">Portfolio is coming soon!</div>
+  <button class="landing-link" onclick="showDashboard()">View sample project</button>
+</div>
+
+<!-- DASHBOARD PAGE -->
+<div id="dashboardPage">
+  <div class="db">
+    <div class="hdr">
+      <button class="hdr-back" onclick="showLanding()" title="Back to portfolio">&#8249;</button>
+      <span class="hdr-title">SCO DCIM KPI Dashboards</span>
+      <div class="hdr-icons">
+        <button class="hdr-btn">⊞</button>
+        <button class="hdr-btn">♡</button>
+        <button class="hdr-btn">↗</button>
+        <button class="hdr-btn">↓</button>
+        <button class="hdr-btn">⚙</button>
+      </div>
+    </div>
+    <div class="filter-bar">
+      <span>★</span><span>Click here to add a filter</span>
+    </div>
+    <div class="tab-bar" id="tabBar"></div>
+    <div class="org-bar">
+      <span class="org-label">Organization Code</span>
+      <select class="org-sel" id="orgSel">
+        <option value="All">All</option>
+        <option value="OrgA">Org A</option>
+        <option value="OrgB">Org B</option>
+      </select>
+    </div>
+    <div class="main" id="mainContent"></div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+/* ── Navigation ── */
+function showDashboard() {
+  document.getElementById('landingPage').style.display = 'none';
+  document.getElementById('dashboardPage').style.display = 'block';
+  if (!tabsBuilt) { buildTabs(); renderView(activeTab, orgCode); tabsBuilt = true; }
+}
+function showLanding() {
+  document.getElementById('dashboardPage').style.display = 'none';
+  document.getElementById('landingPage').style.display = 'flex';
+}
+
+const TABS = [
+  { id:'executive',     label:'Executive Summary' },
+  { id:'procurement',   label:'Procurement' },
+  { id:'warehouse',     label:'Warehouse Ops' },
+  { id:'inventory',     label:'Inventory Control' },
+  { id:'compliance',    label:'Compliance & Risk' },
+  { id:'sustainability',label:'ESG / Sustainability' },
+  { id:'finance',       label:'Finance' },
+];
+
+const CHARTS = {};
+let activeTab = 'executive';
+let orgCode = 'All';
+let tabsBuilt = false;
+
+const DATA = {
+  executive: {
+    // 5 cards only (removed card 6)
+    All: [
+      { name:'Delivery Performance',  value:'96.5%', target:'98%',    status:'at-risk',  trend:'down',   owner:'Owner A', da:'Yes' },
+      { name:'Shipment Compliance',   value:'98.2%', target:'98%',    status:'on-track', trend:'up',     owner:'Owner B', da:'Yes' },
+      { name:'Facility Utilisation',  value:'82%',   target:'< 80%', status:'critical', trend:'up',     owner:'Owner C', da:'No'  },
+      { name:'Stock Turnover Ratio',  value:'8.4x',  target:'10x',   status:'at-risk',  trend:'stable', owner:'Owner D', da:'Yes' },
+      { name:'Regulatory Compliance', value:'100%',  target:'100%',  status:'on-track', trend:'stable', owner:'Owner E', da:'No'  },
+    ],
+    OrgA: [
+      { name:'Delivery Performance',  value:'94.8%', target:'98%',    status:'at-risk',  trend:'down',   owner:'Owner A', da:'Yes' },
+      { name:'Shipment Compliance',   value:'97.5%', target:'98%',    status:'at-risk',  trend:'up',     owner:'Owner B', da:'Yes' },
+      { name:'Facility Utilisation',  value:'78%',   target:'< 80%', status:'at-risk',  trend:'up',     owner:'Owner C', da:'No'  },
+      { name:'Stock Turnover Ratio',  value:'7.9x',  target:'10x',   status:'at-risk',  trend:'down',   owner:'Owner D', da:'Yes' },
+      { name:'Regulatory Compliance', value:'100%',  target:'100%',  status:'on-track', trend:'stable', owner:'Owner E', da:'No'  },
+    ],
+    OrgB: [
+      { name:'Delivery Performance',  value:'97.8%', target:'98%',    status:'at-risk',  trend:'up',     owner:'Owner A', da:'Yes' },
+      { name:'Shipment Compliance',   value:'98.9%', target:'98%',    status:'on-track', trend:'up',     owner:'Owner B', da:'Yes' },
+      { name:'Facility Utilisation',  value:'85%',   target:'< 80%', status:'critical', trend:'up',     owner:'Owner C', da:'No'  },
+      { name:'Stock Turnover Ratio',  value:'9.1x',  target:'10x',   status:'at-risk',  trend:'up',     owner:'Owner D', da:'Yes' },
+      { name:'Regulatory Compliance', value:'100%',  target:'100%',  status:'on-track', trend:'stable', owner:'Owner E', da:'No'  },
+    ]
+  },
+  procurement: {
+    All: [
+      { name:'Commit Date Accuracy',    value:'94%',   target:'98%', status:'at-risk',  trend:'up',   owner:'Owner G', da:'Phase 2' },
+      { name:'Aged PO Rate',            value:'12%',   target:'< 5%',status:'critical', trend:'up',   owner:'Owner H', da:'Yes' },
+      { name:'Schedule Change Rate',    value:'91%',   target:'95%', status:'at-risk',  trend:'stable',owner:'Owner G', da:'Phase 2' },
+      { name:'Receiving SLA Adherence', value:'97.8%', target:'98%', status:'at-risk',  trend:'down', owner:'Owner I', da:'Yes' },
+    ],
+    OrgA: [
+      { name:'Commit Date Accuracy',    value:'91%',   target:'98%', status:'critical', trend:'stable',owner:'Owner G', da:'Phase 2' },
+      { name:'Aged PO Rate',            value:'15%',   target:'< 5%',status:'critical', trend:'up',   owner:'Owner H', da:'Yes' },
+      { name:'Schedule Change Rate',    value:'88%',   target:'95%', status:'critical', trend:'down', owner:'Owner G', da:'Phase 2' },
+      { name:'Receiving SLA Adherence', value:'96.5%', target:'98%', status:'at-risk',  trend:'down', owner:'Owner I', da:'Yes' },
+    ],
+    OrgB: [
+      { name:'Commit Date Accuracy',    value:'96%',   target:'98%', status:'at-risk',  trend:'up',   owner:'Owner G', da:'Phase 2' },
+      { name:'Aged PO Rate',            value:'9%',    target:'< 5%',status:'at-risk',  trend:'down', owner:'Owner H', da:'Yes' },
+      { name:'Schedule Change Rate',    value:'93%',   target:'95%', status:'at-risk',  trend:'up',   owner:'Owner G', da:'Phase 2' },
+      { name:'Receiving SLA Adherence', value:'98.5%', target:'98%', status:'on-track', trend:'up',   owner:'Owner I', da:'Yes' },
+    ]
+  },
+  warehouse: {
+    All: [
+      { name:'Facility Utilisation',   value:'82%',   target:'< 80%',status:'critical', trend:'up',   owner:'Owner C', da:'No'  },
+      { name:'Daily Lines Shipped',    value:'2,847', target:'3,000',status:'at-risk',  trend:'up',   owner:'Owner J', da:'Yes' },
+      { name:'Inbound Processing SLA', value:'97.8%', target:'98%',  status:'at-risk',  trend:'down', owner:'Owner I', da:'Yes' },
+      { name:'Transfer Backlog',       value:'23',    target:'< 20', status:'at-risk',  trend:'down', owner:'Owner K', da:'Yes' },
+    ],
+    OrgA: [
+      { name:'Facility Utilisation',   value:'78%',   target:'< 80%',status:'at-risk',  trend:'stable',owner:'Owner C', da:'No'  },
+      { name:'Daily Lines Shipped',    value:'2,410', target:'3,000',status:'critical', trend:'down', owner:'Owner J', da:'Yes' },
+      { name:'Inbound Processing SLA', value:'96.9%', target:'98%',  status:'at-risk',  trend:'down', owner:'Owner I', da:'Yes' },
+      { name:'Transfer Backlog',       value:'18',    target:'< 20', status:'on-track', trend:'up',   owner:'Owner K', da:'Yes' },
+    ],
+    OrgB: [
+      { name:'Facility Utilisation',   value:'85%',   target:'< 80%',status:'critical', trend:'up',   owner:'Owner C', da:'No'  },
+      { name:'Daily Lines Shipped',    value:'3,120', target:'3,000',status:'on-track', trend:'up',   owner:'Owner J', da:'Yes' },
+      { name:'Inbound Processing SLA', value:'98.4%', target:'98%',  status:'on-track', trend:'up',   owner:'Owner I', da:'Yes' },
+      { name:'Transfer Backlog',       value:'27',    target:'< 20', status:'critical', trend:'down', owner:'Owner K', da:'Yes' },
+    ]
+  },
+  inventory: {
+    All: [
+      { name:'Count Completion Rate', value:'98.5%', target:'≥98%',   status:'on-track', trend:'stable',owner:'Owner L', da:'Yes' },
+      { name:'Line Accuracy Rate',    value:'98.7%', target:'≥98.5%', status:'on-track', trend:'up',    owner:'Owner L', da:'Yes' },
+      { name:'Dollar Variance Rate',  value:'99.9%', target:'≥99.8%', status:'on-track', trend:'stable',owner:'Owner L', da:'Yes' },
+      { name:'Stock Turnover Ratio',  value:'8.4x',  target:'10x',    status:'at-risk',  trend:'stable',owner:'Owner D', da:'Yes' },
+    ],
+    OrgA: [
+      { name:'Count Completion Rate', value:'97.8%', target:'≥98%',   status:'at-risk',  trend:'down',  owner:'Owner L', da:'Yes' },
+      { name:'Line Accuracy Rate',    value:'98.9%', target:'≥98.5%', status:'on-track', trend:'up',    owner:'Owner L', da:'Yes' },
+      { name:'Dollar Variance Rate',  value:'99.85%',target:'≥99.8%', status:'on-track', trend:'stable',owner:'Owner L', da:'Yes' },
+      { name:'Stock Turnover Ratio',  value:'7.9x',  target:'10x',    status:'at-risk',  trend:'down',  owner:'Owner D', da:'Yes' },
+    ],
+    OrgB: [
+      { name:'Count Completion Rate', value:'99.1%', target:'≥98%',   status:'on-track', trend:'up',    owner:'Owner L', da:'Yes' },
+      { name:'Line Accuracy Rate',    value:'98.6%', target:'≥98.5%', status:'on-track', trend:'stable',owner:'Owner L', da:'Yes' },
+      { name:'Dollar Variance Rate',  value:'99.92%',target:'≥99.8%', status:'on-track', trend:'up',    owner:'Owner L', da:'Yes' },
+      { name:'Stock Turnover Ratio',  value:'9.1x',  target:'10x',    status:'at-risk',  trend:'up',    owner:'Owner D', da:'Yes' },
+    ]
+  },
+  compliance: {
+    All: [
+      { name:'Origin Compliance Rate', value:'100%', target:'100%', status:'on-track', trend:'stable',owner:'Owner M', da:'No' },
+      { name:'Issue Resolution ≤30d',  value:'89%',  target:'95%',  status:'at-risk',  trend:'up',    owner:'Owner N', da:'No' },
+      { name:'Audit Assessment Score', value:'205',  target:'200',  status:'on-track', trend:'up',    owner:'Owner O', da:'No' },
+      { name:'Continuity Plan Score',  value:'100',  target:'100',  status:'on-track', trend:'stable',owner:'Owner P', da:'No' },
+    ],
+    OrgA: [
+      { name:'Origin Compliance Rate', value:'100%', target:'100%', status:'on-track', trend:'stable',owner:'Owner M', da:'No' },
+      { name:'Issue Resolution ≤30d',  value:'82%',  target:'95%',  status:'critical', trend:'down',  owner:'Owner N', da:'No' },
+      { name:'Audit Assessment Score', value:'210',  target:'200',  status:'on-track', trend:'up',    owner:'Owner O', da:'No' },
+      { name:'Continuity Plan Score',  value:'100',  target:'100',  status:'on-track', trend:'stable',owner:'Owner P', da:'No' },
+    ],
+    OrgB: [
+      { name:'Origin Compliance Rate', value:'100%', target:'100%', status:'on-track', trend:'stable',owner:'Owner M', da:'No' },
+      { name:'Issue Resolution ≤30d',  value:'93%',  target:'95%',  status:'at-risk',  trend:'up',    owner:'Owner N', da:'No' },
+      { name:'Audit Assessment Score', value:'200',  target:'200',  status:'on-track', trend:'stable',owner:'Owner O', da:'No' },
+      { name:'Continuity Plan Score',  value:'98',   target:'100',  status:'at-risk',  trend:'up',    owner:'Owner P', da:'No' },
+    ]
+  },
+  sustainability: {
+    All: [
+      { name:'Emissions Reporting',   value:'On Time', target:'100%', status:'on-track', trend:'stable',owner:'Owner Q', da:'No' },
+      { name:'Carbon Border Reports', value:'Complete',target:'100%', status:'on-track', trend:'stable',owner:'Owner R', da:'No' },
+      { name:'Responsibility Audits', value:'100%',    target:'100%', status:'on-track', trend:'stable',owner:'Owner O', da:'No' },
+      { name:'Supplier ESG Score',    value:'94%',     target:'95%',  status:'at-risk',  trend:'up',    owner:'Owner P', da:'No' },
+    ],
+    OrgA: [
+      { name:'Emissions Reporting',   value:'On Time', target:'100%', status:'on-track', trend:'stable',owner:'Owner Q', da:'No' },
+      { name:'Carbon Border Reports', value:'Complete',target:'100%', status:'on-track', trend:'stable',owner:'Owner R', da:'No' },
+      { name:'Responsibility Audits', value:'100%',    target:'100%', status:'on-track', trend:'stable',owner:'Owner O', da:'No' },
+      { name:'Supplier ESG Score',    value:'91%',     target:'95%',  status:'at-risk',  trend:'stable',owner:'Owner P', da:'No' },
+    ],
+    OrgB: [
+      { name:'Emissions Reporting',   value:'Delayed', target:'100%', status:'at-risk',  trend:'down',  owner:'Owner Q', da:'No' },
+      { name:'Carbon Border Reports', value:'Complete',target:'100%', status:'on-track', trend:'stable',owner:'Owner R', da:'No' },
+      { name:'Responsibility Audits', value:'100%',    target:'100%', status:'on-track', trend:'stable',owner:'Owner O', da:'No' },
+      { name:'Supplier ESG Score',    value:'96%',     target:'95%',  status:'on-track', trend:'up',    owner:'Owner P', da:'No' },
+    ]
+  },
+  finance: {
+    All: [
+      { name:'Hub Spend (MTD)',       value:'$8.4M',   target:'$8.5M',    status:'on-track', trend:'stable',owner:'Owner C', da:'Yes' },
+      { name:'Total Inventory Value', value:'$12.3M',  target:'$12M',     status:'at-risk',  trend:'up',    owner:'Owner D', da:'Yes' },
+      { name:'Aged PO Exposure',      value:'$2.1M',   target:'<$1.5M',   status:'critical', trend:'up',    owner:'Owner H', da:'Yes' },
+      { name:'Return Credit Cycle',   value:'18 days', target:'≤15 days', status:'at-risk',  trend:'stable',owner:'Owner S', da:'Yes' },
+    ],
+    OrgA: [
+      { name:'Hub Spend (MTD)',       value:'$3.6M',   target:'$3.8M',    status:'at-risk',  trend:'down',  owner:'Owner C', da:'Yes' },
+      { name:'Total Inventory Value', value:'$5.1M',   target:'$5M',      status:'at-risk',  trend:'up',    owner:'Owner D', da:'Yes' },
+      { name:'Aged PO Exposure',      value:'$1.4M',   target:'<$1.5M',   status:'at-risk',  trend:'stable',owner:'Owner H', da:'Yes' },
+      { name:'Return Credit Cycle',   value:'22 days', target:'≤15 days', status:'critical', trend:'up',    owner:'Owner S', da:'Yes' },
+    ],
+    OrgB: [
+      { name:'Hub Spend (MTD)',       value:'$4.8M',   target:'$4.7M',    status:'on-track', trend:'up',    owner:'Owner C', da:'Yes' },
+      { name:'Total Inventory Value', value:'$7.2M',   target:'$7M',      status:'at-risk',  trend:'up',    owner:'Owner D', da:'Yes' },
+      { name:'Aged PO Exposure',      value:'$0.7M',   target:'<$1.5M',   status:'on-track', trend:'down',  owner:'Owner H', da:'Yes' },
+      { name:'Return Credit Cycle',   value:'14 days', target:'≤15 days', status:'on-track', trend:'down',  owner:'Owner S', da:'Yes' },
+    ]
+  }
+};
+
+function statusIcon(s) { return s==='on-track'?'✓': s==='at-risk'?'⏱':'!'; }
+function trendBadge(t) {
+  const cls = t==='up'?'trend-up': t==='down'?'trend-down':'trend-stable';
+  const a   = t==='up'?'↑ Up': t==='down'?'↓ Down':'→ Stable';
+  return `<span class="trend-badge ${cls}">${a}</span>`;
+}
+function daBadge(da) {
+  if (da==='Yes') return `<span class="badge badge-in"><span class="badge-dot" style="background:#3a6e1a;"></span>In Fusion</span>`;
+  if (da==='No')  return `<span class="badge badge-out"><span class="badge-dot" style="background:#b3311f;"></span>Not in Fusion</span>`;
+  return `<span class="badge badge-p2"><span class="badge-dot" style="background:#8a5d00;"></span>Phase 2</span>`;
+}
+function kpiCards(arr) {
+  return arr.map(k => {
+    const ic = k.status==='on-track'?'ok': k.status==='at-risk'?'risk':'crit';
+    return `<div class="kpi-card">
+      <div class="kpi-top"><div class="kpi-icon ${ic}">${statusIcon(k.status)}</div>${trendBadge(k.trend)}</div>
+      <div class="kpi-val">${k.value}</div>
+      <div class="kpi-target">Target: ${k.target}</div>
+      <div class="kpi-name">${k.name}</div>
+      <div class="kpi-owner">Owner: ${k.owner}</div>
+      <div class="badges">${daBadge(k.da)}</div>
+    </div>`;
+  }).join('');
+}
+
+const CHART_CONFIGS = {
+  executive: (org) => {
+    const otif = org==='OrgA'?[88,89,90,90,91,90]: org==='OrgB'?[93,94,95,95,96,96]:[91,92,93,93,94,93];
+    const cap  = org==='OrgA'?[72,81,68]: org==='OrgB'?[88,79,85,71]:[85,78,82,68];
+    const cL   = org==='OrgA'?['Site 1','Site 2','Site 3']: org==='OrgB'?['Site 4','Site 5','Site 6','Site 7']:['Site A','Site B','Site C','Site D'];
+    return [
+      { id:'ch-otif', type:'line', h:200, title:'Delivery Performance Trend', sub:'On-time in-full rate – last 6 months',
+        legend:[{c:'#00688c',l:'Rate %'}],
+        data:{ labels:['Aug','Sep','Oct','Nov','Dec','Jan'], datasets:[{label:'Rate %',data:otif,borderColor:'#00688c',backgroundColor:'rgba(0,104,140,0.07)',tension:0.35,pointBackgroundColor:'#00688c',pointRadius:4,fill:true}]},
+        yOpts:{min:85,max:100,cb:v=>v+'%'} },
+      { id:'ch-cap', type:'bar', h:200, title:'Facility Utilisation by Site', sub:'Current utilisation across locations',
+        legend:[{c:'#00688c',l:'≤80%'},{c:'#b3311f',l:'>80%'}],
+        data:{ labels:cL, datasets:[{label:'Utilisation %',data:cap,backgroundColor:cap.map(v=>v>80?'#b3311f':'#00688c'),borderRadius:4}]},
+        yOpts:{min:0,max:100,cb:v=>v+'%'} },
+    ];
+  },
+  procurement: (org) => {
+    const aging = org==='OrgA'?[38,32,18,12]: org==='OrgB'?[52,30,12,6]:[45,35,12,8];
+    const lt    = org==='OrgA'?[{s:'Vendor 1',v:18},{s:'Vendor 2',v:22},{s:'Vendor 3',v:15}]: org==='OrgB'?[{s:'Vendor 4',v:12},{s:'Vendor 5',v:16},{s:'Vendor 6',v:20},{s:'Vendor 7',v:14}]:[{s:'Vendor A',v:12},{s:'Vendor B',v:18},{s:'Vendor C',v:22},{s:'Vendor D',v:15}];
+    return [
+      { id:'ch-aging', type:'bar', h:200, title:'PO Aging Distribution', sub:'Open POs by age band',
+        legend:[{c:'#00688c',l:'0–15d'},{c:'#6c9c20',l:'16–30d'},{c:'#d87516',l:'31–60d'},{c:'#b3311f',l:'>60d'}],
+        data:{ labels:['0–15 days','16–30 days','31–60 days','> 60 days'], datasets:[{label:'Share %',data:aging,backgroundColor:['#00688c','#6c9c20','#d87516','#b3311f'],borderRadius:4}]},
+        yOpts:{cb:v=>v+'%'} },
+      { id:'ch-lt', type:'bar', h:200, title:'Vendor Avg. Lead Time', sub:'Days from PO release to delivery',
+        legend:[{c:'#00688c',l:'On target'},{c:'#d87516',l:'Over target'}],
+        data:{ labels:lt.map(x=>x.s), datasets:[{label:'Days',data:lt.map(x=>x.v),backgroundColor:lt.map(x=>x.v>14?'#d87516':'#00688c'),borderRadius:4}]},
+        yOpts:{cb:v=>v+'d'} },
+    ];
+  },
+  warehouse: (org) => {
+    const dts = org==='OrgA'?[5.2,4.8,5.0,4.6,4.9,4.7]: org==='OrgB'?[3.8,3.5,3.6,3.4,3.3,3.2]:[4.5,4.2,4.3,4.0,4.1,3.9];
+    const so  = org==='OrgA'?[1050,1100,1080,1120,1150,1180]: org==='OrgB'?[1600,1650,1620,1700,1720,1750]:[1350,1400,1380,1420,1450,1470];
+    const to  = org==='OrgA'?[980,1020,990,1050,1060,1030]: org==='OrgB'?[1200,1250,1210,1280,1300,1370]:[1100,1120,1100,1170,1180,1177];
+    return [
+      { id:'ch-dts', type:'bar', h:200, title:'Dock-to-Stock Cycle Time', sub:'Hours per week',
+        legend:[{c:'#00688c',l:'Hours'}],
+        data:{ labels:['W1','W2','W3','W4','W5','W6'], datasets:[{label:'Hours',data:dts,backgroundColor:'#00688c',borderRadius:4}]},
+        yOpts:{cb:v=>v+'h'} },
+      { id:'ch-tp', type:'bar', h:200, title:'Lines Shipped by Order Type', sub:'Weekly volume by order category',
+        legend:[{c:'#00688c',l:'Sales Orders'},{c:'#6c4d00',l:'Transfer Orders'}],
+        data:{ labels:['W1','W2','W3','W4','W5','W6'], datasets:[{label:'Sales Orders',data:so,backgroundColor:'#00688c',borderRadius:4},{label:'Transfer Orders',data:to,backgroundColor:'#6c4d00',borderRadius:4}]},
+        yOpts:{cb:v=>v>=1000?(v/1000).toFixed(1)+'k':String(v)} },
+    ];
+  },
+  inventory: (org) => {
+    const dos = org==='OrgA'?[42,40,38,39,37,36]: org==='OrgB'?[28,27,29,28,30,29]:[35,33,34,32,33,32];
+    const fr  = org==='OrgA'?[96.2,96.5,96.0,96.8,96.4,96.6]: org==='OrgB'?[98.5,98.7,98.4,98.8,98.6,98.9]:[97.5,97.8,97.3,98.0,97.6,97.8];
+    return [
+      { id:'ch-dos', type:'bar', h:200, title:'Days of Supply Trend', sub:'On-hand inventory vs 30-day target',
+        legend:[{c:'#00688c',l:'Days'}],
+        data:{ labels:['Aug','Sep','Oct','Nov','Dec','Jan'], datasets:[{label:'Days',data:dos,backgroundColor:'#00688c',borderRadius:4}]},
+        yOpts:{cb:v=>v+'d'} },
+      { id:'ch-fill', type:'bar', h:200, title:'Fill Rate Trend', sub:'Weekly fill rate (%)',
+        legend:[{c:'#3a6e1a',l:'Fill Rate %'}],
+        data:{ labels:['W1','W2','W3','W4','W5','W6'], datasets:[{label:'Fill Rate %',data:fr,backgroundColor:'#3a6e1a',borderRadius:4}]},
+        yOpts:{min:95,max:100,cb:v=>v+'%'} },
+    ];
+  },
+  compliance: (org) => {
+    const ncat = org==='OrgA'?[80,78,81,83,82,82]: org==='OrgB'?[91,90,92,93,92,93]:[86,85,87,88,88,89];
+    const risk = org==='OrgA'?[{s:'Vendor 1',v:28},{s:'Vendor 2',v:35},{s:'Vendor 3',v:22}]: org==='OrgB'?[{s:'Vendor 4',v:15},{s:'Vendor 5',v:20},{s:'Vendor 6',v:32},{s:'Vendor 7',v:18}]:[{s:'Vendor A',v:18},{s:'Vendor B',v:32},{s:'Vendor C',v:12},{s:'Vendor D',v:42}];
+    return [
+      { id:'ch-ncat', type:'bar', h:200, title:'Issue Resolution Rate', sub:'Monthly resolved % trend',
+        legend:[{c:'#00688c',l:'Resolved %'}],
+        data:{ labels:['Aug','Sep','Oct','Nov','Dec','Jan'], datasets:[{label:'Resolved %',data:ncat,backgroundColor:'#00688c',borderRadius:4}]},
+        yOpts:{min:75,max:100,cb:v=>v+'%'} },
+      { id:'ch-risk', type:'bar', h:200, title:'Vendor Risk Index', sub:'Composite risk score (lower is better)',
+        legend:[{c:'#d87516',l:'Within threshold'},{c:'#b3311f',l:'Exceeds threshold'}],
+        data:{ labels:risk.map(x=>x.s), datasets:[{label:'Risk Score',data:risk.map(x=>x.v),backgroundColor:risk.map(x=>x.v>30?'#b3311f':'#d87516'),borderRadius:4}]},
+        yOpts:{} },
+    ];
+  },
+  sustainability: (org) => {
+    const ghg = org==='OrgA'?[120,340,1850]: org==='OrgB'?[180,520,2800]:[300,860,4650];
+    const esg = org==='OrgA'?[{s:'Vendor 1',v:93},{s:'Vendor 2',v:88},{s:'Vendor 3',v:96}]: org==='OrgB'?[{s:'Vendor 4',v:98},{s:'Vendor 5',v:95},{s:'Vendor 6',v:91},{s:'Vendor 7',v:97}]:[{s:'Vendor A',v:97},{s:'Vendor B',v:91},{s:'Vendor C',v:99},{s:'Vendor D',v:88}];
+    return [
+      { id:'ch-ghg', type:'bar', h:220, title:'GHG Emissions by Scope', sub:'tCO₂e – current quarter',
+        legend:[{c:'#00688c',l:'Scope 1'},{c:'#6c4d00',l:'Scope 2'},{c:'#d87516',l:'Scope 3'}],
+        data:{ labels:['Scope 1','Scope 2','Scope 3'], datasets:[{label:'tCO₂e',data:ghg,backgroundColor:['#00688c','#6c4d00','#d87516'],borderRadius:4}]},
+        yOpts:{cb:v=>v>=1000?(v/1000).toFixed(1)+'k':String(v)} },
+      { id:'ch-esg', type:'bar', h:200, title:'Vendor ESG Compliance Scores', sub:'Compliance % by vendor',
+        legend:[{c:'#3a6e1a',l:'Meeting target'},{c:'#d87516',l:'Below target'}],
+        data:{ labels:esg.map(x=>x.s), datasets:[{label:'ESG %',data:esg.map(x=>x.v),backgroundColor:esg.map(x=>x.v>=95?'#3a6e1a':'#d87516'),borderRadius:4}]},
+        yOpts:{min:80,max:100,cb:v=>v+'%'} },
+    ];
+  },
+  finance: (org) => {
+    const bL=['Direct Material','Logistics','Warehousing','Labour'];
+    const bB= org==='OrgA'?[2.8,0.6,0.4,0.5]: org==='OrgB'?[3.4,0.8,0.5,0.7]:[6.2,1.4,0.9,1.2];
+    const bA= org==='OrgA'?[2.9,0.7,0.38,0.48]: org==='OrgB'?[3.5,0.85,0.52,0.68]:[6.4,1.5,0.88,1.15];
+    const cts= org==='OrgA'?[[4.2,2.8,1.5,0.8],[4.0,2.7,1.4,0.7],[3.9,2.6,1.4,0.8],[4.1,2.7,1.5,0.7],[3.8,2.5,1.3,0.7],[3.7,2.5,1.3,0.6]]: org==='OrgB'?[[5.5,3.2,1.8,1.0],[5.3,3.1,1.7,0.9],[5.1,3.0,1.7,0.9],[5.2,3.1,1.7,0.8],[5.0,2.9,1.6,0.8],[4.8,2.8,1.6,0.8]]:[[4.8,3.0,1.6,0.9],[4.6,2.9,1.5,0.8],[4.5,2.8,1.5,0.8],[4.6,2.9,1.6,0.7],[4.4,2.7,1.4,0.7],[4.3,2.6,1.4,0.7]];
+    return [
+      { id:'ch-bva', type:'bar', h:220, title:'Budget vs Actual Spend', sub:'Current quarter by cost category ($M)',
+        legend:[{c:'#00688c',l:'Budget'},{c:'#d87516',l:'Actual'}],
+        data:{ labels:bL, datasets:[{label:'Budget',data:bB,backgroundColor:'#00688c',borderRadius:4},{label:'Actual',data:bA,backgroundColor:'#d87516',borderRadius:4}]},
+        yOpts:{cb:v=>'$'+v+'M'} },
+      { id:'ch-cts', type:'bar', h:220, title:'Cost-to-Serve Breakdown', sub:'Monthly per-unit cost by category ($)',
+        legend:[{c:'#00688c',l:'Freight'},{c:'#6c4d00',l:'Handling'},{c:'#3a6e1a',l:'Storage'},{c:'#d87516',l:'Returns'}],
+        data:{ labels:['Aug','Sep','Oct','Nov','Dec','Jan'], datasets:[{label:'Freight',data:cts.map(x=>x[0]),backgroundColor:'#00688c',stack:'s'},{label:'Handling',data:cts.map(x=>x[1]),backgroundColor:'#6c4d00',stack:'s'},{label:'Storage',data:cts.map(x=>x[2]),backgroundColor:'#3a6e1a',stack:'s'},{label:'Returns',data:cts.map(x=>x[3]),backgroundColor:'#d87516',stack:'s',borderRadius:4}]},
+        yOpts:{cb:v=>'$'+v}, stackX:true, stackY:true },
+    ];
+  }
+};
+
+function destroyCharts() {
+  Object.keys(CHARTS).forEach(id=>{ try{ CHARTS[id].destroy(); }catch(e){} delete CHARTS[id]; });
+}
+function renderCharts(tab, org) {
+  (CHART_CONFIGS[tab]?CHART_CONFIGS[tab](org):[]).forEach(cfg=>{
+    const canvas = document.getElementById(cfg.id);
+    if (!canvas) return;
+    const yo = cfg.yOpts||{};
+    const opts = {
+      responsive:true, maintainAspectRatio:false,
+      plugins:{ legend:{display:false} },
+      scales:{
+        x:{ grid:{color:'rgba(0,0,0,0.05)'}, ticks:{font:{size:11}} },
+        y:{ grid:{color:'rgba(0,0,0,0.05)'}, ticks:{ font:{size:11}, ...(yo.cb?{callback:yo.cb}:{}) },
+            ...(yo.min!=null?{min:yo.min}:{}), ...(yo.max!=null?{max:yo.max}:{}) }
+      }
+    };
+    if (cfg.stackX) opts.scales.x.stacked = true;
+    if (cfg.stackY) opts.scales.y.stacked = true;
+    CHARTS[cfg.id] = new Chart(canvas, { type:cfg.type, data:cfg.data, options:opts });
+  });
+}
+
+const EXTRA = {
+  executive: ()=>`
+    <div class="section-card">
+      <div class="section-hdr"><h3>Compliance & ESG Snapshot</h3></div>
+      <div class="compliance-grid">
+        ${[['Audit Score','205 / 200','Owner O'],['Continuity Plan','100 / 100','Owner P'],['Emissions Report','On Time','Owner Q'],['Regulatory Reports','Submitted','Owner R']].map(([l,v,o])=>`
+        <div class="comp-item"><span style="color:#00688c;font-size:18px;flex-shrink:0;margin-top:1px;">✓</span>
+          <div><div class="comp-label">${l}</div><div class="comp-val">${v}</div><div class="comp-owner">${o}</div></div>
+        </div>`).join('')}
+      </div>
+    </div>`,
+  procurement: ()=>`
+    <div class="section-card">
+      <div class="section-hdr"><h3>Vendor Performance Summary</h3></div>
+      <div style="overflow-x:auto;"><table>
+        <thead><tr><th>Vendor</th><th>Commit Accuracy</th><th>Schedule Changes</th><th>Open Issues</th><th>Status</th></tr></thead>
+        <tbody>
+          ${[['Vendor A','96%',12,0,'Good','ok'],['Vendor B','92%',28,1,'Monitor','mon'],['Vendor C','98%',8,0,'Excellent','ok'],['Vendor D','88%',45,2,'Action Required','act']].map(([n,a,s,i,st,cls])=>`
+          <tr><td><strong>${n}</strong></td><td>${a}</td><td>${s}</td><td>${i}</td><td><span class="sbadge s-${cls}">${st}</span></td></tr>`).join('')}
+        </tbody>
+      </table></div>
+    </div>`,
+  inventory: ()=>`
+    <div class="section-card">
+      <div class="section-hdr"><h3>System Reconciliation Status</h3><p>Inventory, orders, and part master sync status</p></div>
+      <div style="overflow-x:auto;"><table>
+        <thead><tr><th>System Area</th><th>Mismatches</th><th>Avg Resolution</th><th>Owner</th><th>Status</th></tr></thead>
+        <tbody>
+          ${[['Inventory Quantities',3,'2.5 hrs','Owner D','On Track','ok'],['Order Sync',8,'4.2 hrs','Owner D','Monitor','mon'],['Part Master Setup',2,'1.8 hrs','Owner D','On Track','ok'],['Transfer Orders',5,'3.1 hrs','Owner D','On Track','ok']].map(([a,m,r,o,s,c])=>`
+          <tr><td><strong>${a}</strong></td><td>${m}</td><td>${r}</td><td>${o}</td><td><span class="sbadge s-${c}">${s}</span></td></tr>`).join('')}
+        </tbody>
+      </table></div>
+    </div>`,
+  compliance: ()=>`
+    <div class="section-card">
+      <div class="section-hdr"><h3>Non-Conformance Action Tracker</h3><p>Open items by aging and severity</p></div>
+      <div style="overflow-x:auto;"><table>
+        <thead><tr><th>Item ID</th><th>Issue</th><th>Severity</th><th>Days Open</th><th>Owner</th><th>Status</th></tr></thead>
+        <tbody>
+          ${[['NC-001','Certification expired','h',28,'Owner T','In Progress'],['NC-002','Documentation gap','m',15,'Owner M','In Progress'],['NC-003','Audit finding – packaging','l',8,'Owner O','Under Review'],['NC-004','Validation pending','h',35,'Owner U','Critical']].map(([id,iss,sev,d,o,st])=>`
+          <tr><td><strong>${id}</strong></td><td>${iss}</td><td><span class="sev-${sev}">${sev==='h'?'High':sev==='m'?'Medium':'Low'}</span></td>
+          <td style="${d>30?'color:#b3311f;font-weight:700;':''}">${d}</td><td>${o}</td>
+          <td style="${st==='Critical'?'color:#b3311f;font-weight:700;':''}">${st}</td></tr>`).join('')}
+        </tbody>
+      </table></div>
+    </div>`,
+  sustainability: ()=>`
+    <div class="section-card">
+      <div class="section-hdr"><h3>Regulatory Reporting Status</h3></div>
+      <div style="padding:16px;display:grid;gap:10px;">
+        ${[['Q1 Emissions Report','31 Jan','28 Jan'],['Q1 Carbon Border Report','28 Feb','25 Feb'],['Q4 Emissions Report','31 Oct','29 Oct'],['Q4 Carbon Border Report','30 Nov','28 Nov']].map(([l,d,s])=>`
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:11px 14px;border:1.5px solid #d0d0d0;border-radius:7px;background:#fafafa;">
+          <div style="display:flex;align-items:center;gap:10px;"><span style="color:#3a6e1a;font-size:17px;">✓</span>
+            <div><div style="font-size:13px;font-weight:600;color:#111;">${l}</div><div style="font-size:11px;color:#777;">Due: ${d}</div></div></div>
+          <div style="text-align:right;"><span class="sbadge s-ok">Submitted</span><div style="font-size:11px;color:#777;margin-top:4px;">${s}</div></div>
+        </div>`).join('')}
+      </div>
+    </div>`,
+  finance: ()=>`
+    <div class="section-card">
+      <div class="section-hdr"><h3>Working Capital Snapshot (Q1)</h3></div>
+      <div style="padding:16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px;">
+        ${[['DPO – Days Payable','51d'],['DSO – Days Sales','37d'],['DIO – Days Inventory','39d']].map(([l,v])=>`
+        <div style="border:1.5px solid #d0d0d0;border-radius:8px;padding:16px;text-align:center;background:#fafafa;">
+          <div style="font-size:11px;color:#777;margin-bottom:6px;">${l}</div>
+          <div style="font-size:30px;font-weight:700;color:#111;">${v}</div>
+        </div>`).join('')}
+      </div>
+    </div>`,
+  warehouse: ()=>'',
+};
+
+function renderView(tab, org) {
+  destroyCharts();
+  const kpis = (DATA[tab]||{})[org] || (DATA[tab]||{}).All || [];
+  const cfgs = CHART_CONFIGS[tab] ? CHART_CONFIGS[tab](org) : [];
+  let html = `<div class="kpi-grid">${kpiCards(kpis)}</div>`;
+  if (cfgs.length) {
+    html += `<div class="chart-grid">`;
+    cfgs.forEach(cfg=>{
+      const leg = cfg.legend.map(l=>`<span class="legend-item"><span class="legend-dot" style="background:${l.c};"></span>${l.l}</span>`).join('');
+      html += `<div class="chart-panel"><div class="chart-title">${cfg.title}</div><div class="chart-sub">${cfg.sub}</div><div class="legend">${leg}</div><div style="position:relative;height:${cfg.h}px;"><canvas id="${cfg.id}" role="img" aria-label="${cfg.title}"></canvas></div></div>`;
+    });
+    html += `</div>`;
+  }
+  html += (EXTRA[tab]?EXTRA[tab]():'');
+  document.getElementById('mainContent').innerHTML = html;
+  setTimeout(()=>renderCharts(tab,org),60);
+}
+
+function buildTabs() {
+  const bar = document.getElementById('tabBar');
+  TABS.forEach(t=>{
+    const btn = document.createElement('button');
+    btn.className = 'tab-btn'+(t.id===activeTab?' active':'');
+    btn.textContent = t.label;
+    btn.onclick = ()=>{
+      document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      activeTab = t.id;
+      renderView(activeTab, orgCode);
+    };
+    bar.appendChild(btn);
+  });
+}
+
+document.getElementById('orgSel').addEventListener('change', e=>{
+  orgCode = e.target.value;
+  renderView(activeTab, orgCode);
+});
+</script>
