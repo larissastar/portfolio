@@ -6,12 +6,88 @@
     <meta name="description" content="UX portfolio of Larissa Starikova — Senior UX Manager and Principal Designer. 20+ years across AI, enterprise, finance, healthcare, and media.">
     <title>Larissa Starikova | UX Portfolio</title>
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Page-specific styles for About hero */
+        .about-hero {
+            background-color: #447379;
+            background-image: url('../images/textures/cotton.png');
+            background-blend-mode: overlay;
+            background-repeat: repeat;
+            color: #ffffff;
+            padding: 4rem 1.25rem;
+            text-align: center;
+        }
+        
+        .about-hero__inner {
+            max-width: var(--max-w);
+            margin: 0 auto;
+        }
+        
+        .about-hero__copy {
+            max-width: 760px;
+            margin: 0 auto;
+        }
+        
+        .about-hero__lead {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #ffffff;
+            margin: 0 0 1rem;
+        }
+        
+        .about-hero__text {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #ffffff;
+            margin: 0 0 1rem;
+        }
+        
+        .about-hero__email {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #ffffff;
+            margin: 0;
+        }
+        
+        .about-hero__links {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #ffffff;
+            margin: 0.5rem 0 0;
+        }
+        
+        .about-hero__links a {
+            color: #ffffff;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+        
+        .about-hero__links a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+            opacity: 0.8;
+        }
+        
+        .about-hero__email a {
+            color: #ffffff;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+        
+        .about-hero__email a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+            opacity: 0.8;
+        }
+    </style>
 </head>
 <body>
 
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <!-- Main Navigation -->
+    <!-- =====================================================
+         Main Navigation (SHARED COMPONENT)
+         ===================================================== -->
     <nav class="main-nav" aria-label="Primary">
         <div class="main-nav__inner">
             <div style="display:flex; align-items:center; gap:.25rem;">
@@ -52,7 +128,9 @@
         </div>
     </nav>
 
-    <!-- Mobile Menu -->
+    <!-- =====================================================
+         Mobile Menu (SHARED COMPONENT)
+         ===================================================== -->
     <div id="mobile-menu" class="mobile-menu" role="dialog" aria-modal="true" aria-label="Site menu">
         <div class="mobile-menu__head">
             <div class="mobile-menu__brand">
@@ -74,31 +152,24 @@
         </ul>
     </div>
 
-    <!-- Main Content - About Page -->
+    <!-- =====================================================
+         Main Content - About Page
+         ===================================================== -->
     <main id="main">
 
         <!-- About Hero -->
         <section class="about-hero">
             <div class="about-hero__inner">
                 <div class="about-hero__copy">
-                    <p class="about-hero__lead">
-                        I am an award-winning design leader with 20+ years of experience across diverse industries, with a strong focus on integrating AI tools into modern design processes since 2025.
-                    </p>
-                    <p class="about-hero__note">
-                        <span class="about-hero__note-label">A note on this portfolio &mdash;</span>
-                        This portfolio is built with the help of several AI tools including Claude Design, Figma Make, ChatGPT, and others.
-                    </p>
-                    <p class="about-hero__links">
-                        View my older <a class="footer-style-link" href="https://www.behance.net/deeporange" target="_blank" rel="noopener noreferrer">Behance portfolio</a> and my <a class="footer-style-link" href="https://www.linkedin.com/in/larissastarikova/" target="_blank" rel="noopener noreferrer">LinkedIn profile</a>.
-                    </p>
-                </div>
-                <div class="about-hero__mark" aria-hidden="true">
-                    <div class="about-hero__mark-inner">LS</div>
+                    <p class="about-hero__lead">I'm an award-winning UX lead with 20+ years of experience across a wide range of industries, with a recent focus on integrating AI into modern design workflows.</p>
+                    <p class="about-hero__text">This portfolio was built using a combination of AI tools for coding and content, including Claude Design, Figma Make, ChatGPT, and others.</p>
+                    <p class="about-hero__links">You can also explore my earlier work on <a href="https://www.behance.net/deeporange" target="_blank" rel="noopener noreferrer">Behance</a> and connect with me on <a href="https://www.linkedin.com/in/larissastarikova/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.</p>
+                    <p class="about-hero__email">Email: <a href="mailto:larissastar@outlook.com">larissastar@outlook.com</a></p>
                 </div>
             </div>
         </section>
 
-        <!-- Section: Design Leader -->
+        <!-- Section: Design Leader (mint pastel) -->
         <section class="about-section about-section--leader" aria-labelledby="leader-title">
             <div class="about-section__inner">
                 <header class="about-section__head">
@@ -149,7 +220,7 @@
             </div>
         </section>
 
-        <!-- Section: Senior Principal Designer -->
+        <!-- Section: Senior Principal Designer (peach pastel) -->
         <section class="about-section about-section--principal" aria-labelledby="principal-title">
             <div class="about-section__inner">
                 <header class="about-section__head">
@@ -194,7 +265,9 @@
 
     </main>
 
-    <!-- Footer -->
+    <!-- =====================================================
+         Footer (SHARED COMPONENT)
+         ===================================================== -->
     <footer class="site-footer" aria-labelledby="footer-title">
         <div class="site-footer__band">
             <h2 id="footer-title" class="site-footer__title">Let's work together</h2>
@@ -221,7 +294,7 @@
         </div>
     </footer>
 
-    <!-- Shared Main Script -->
+    <!-- Shared Main Script (Handles mobile menu globally) -->
     <script src="js/main.js" defer></script>
 </body>
 </html>
