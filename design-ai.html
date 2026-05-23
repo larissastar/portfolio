@@ -9,7 +9,7 @@
     <style>
         /* Page-specific styles for Design With AI */
         .design-ai-hero {
-            background: var(--amazon-light-green);
+            background: #F3F8F5;
             padding: 3.5rem 1.25rem 3rem;
             text-align: center;
         }
@@ -23,16 +23,58 @@
         }
         
         .design-ai-overview {
-            font-size: 1.1rem;
+            font-size: 1rem;
             line-height: 1.6;
             color: var(--text-muted);
             max-width: 760px;
             margin: 0 auto;
         }
         
+        /* Tools Section */
+        .tools-section-wrapper {
+            background: #FFFFFF;
+            padding: 2rem 1.25rem;
+        }
+        
+        .tools-box {
+            background: #FDF6F0;
+            padding: 2rem;
+            margin: 0 auto;
+            border-radius: 16px;
+            max-width: var(--max-w);
+        }
+        
+        .section-subtitle {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #385f64;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        /* Continuous vertical bar list style */
+        .bullet-list-vertical-bar {
+            margin: 0;
+            padding-left: 1rem;
+            list-style: none;
+            color: #2c4b4f;
+            line-height: 1.6;
+            border-left: 3px solid #00a8a1;
+        }
+        
+        .bullet-list-vertical-bar li {
+            margin-bottom: 0.5rem;
+            padding-left: 0.75rem;
+        }
+        
+        .bullet-list-vertical-bar li:last-child {
+            margin-bottom: 0;
+        }
+        
         .design-ai-section {
             padding: 3rem 0 4rem;
-            background: var(--amazon-blue-bg);
+            background: #D9E8E9;
         }
         
         .design-ai-cards {
@@ -41,7 +83,7 @@
             gap: 1.5rem;
             max-width: var(--max-w);
             margin: 0 auto;
-            padding: 0 2rem; /* Increased side margins */
+            padding: 0 2rem;
         }
         
         @media (max-width: 1100px) {
@@ -66,6 +108,7 @@
             transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
             display: flex;
             flex-direction: column;
+            border: 1px solid rgba(0, 0, 0, 0.3);
         }
         
         .design-ai-card:hover {
@@ -78,7 +121,7 @@
             aspect-ratio: 16/9;
             overflow: hidden;
             background: var(--bg-soft);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.3); /* Thin divider with 30% opacity */
+            border-bottom: 1px solid rgba(0, 0, 0, 0.3);
         }
         
         .design-ai-card__thumb {
@@ -101,6 +144,7 @@
             color: var(--c-1300);
             margin: 0 0 0.6rem;
             letter-spacing: -0.005em;
+            line-height: 1.3;
         }
         
         .design-ai-card__text {
@@ -118,21 +162,14 @@
             margin: 0.5rem 0;
         }
         
-        .design-ai-card__tools {
-            font-size: 0.8rem;
-            color: var(--c-1100);
-            margin: 0 0 0.75rem;
-            line-height: 1.4;
-        }
-        
         .design-ai-btn {
             display: inline-block;
             background: var(--amazon-teal-btn);
             color: #ffffff;
             font-family: Arial, sans-serif;
-            font-weight: 700; /* Bold */
+            font-weight: 700;
             font-size: 0.9rem;
-            padding: 0.5rem 1rem; /* Tighter padding to hug content */
+            padding: 0.5rem 1rem;
             border: none;
             border-radius: 4px;
             text-decoration: none;
@@ -140,7 +177,7 @@
             transition: background 0.2s var(--ease), transform 0.1s var(--ease);
             margin-top: auto;
             text-align: center;
-            width: auto; /* Allow button to shrink to content */
+            width: auto;
         }
         
         .design-ai-btn:hover {
@@ -233,8 +270,18 @@
         <!-- Hero Section -->
         <section class="design-ai-hero">
             <h1 class="design-ai-title">Design With AI</h1>
-            <p class="design-ai-overview">This section showcases projects where I heavily used various AI tools. Since late 2025, I've been actively integrating AI into design processes and continuously exploring new tools to streamline workflows.</p>
+            <p class="design-ai-overview">This section highlights projects where I used AI to move faster from discovery to execution while keeping the work grounded in UX fundamentals. Since late 2025, I've been integrating AI into my process to accelerate early exploration, synthesize inputs, and iterate on flows, content, and prototypes more efficiently. I also regularly explore new tools through tutorials and hands-on experimentation to stay current and understand when AI meaningfully improves quality and speed.</p>
         </section>
+
+        <!-- Tools Section -->
+        <div class="tools-section-wrapper">
+            <div class="tools-box">
+                <div class="section-subtitle">TOOLS USED ACROSS THE PROJECTS</div>
+                <ul class="bullet-list-vertical-bar">
+                    <li>Claude & Claude Design, Figma Make, ChatGPT, Oracle GenAI, OpenAI Codex, Copilot, Google AI, Aura Build, Visily, Subframe, and others.</li>
+                </ul>
+            </div>
+        </div>
 
         <!-- Cards Section -->
         <section class="design-ai-section">
@@ -248,8 +295,7 @@
                     <div class="design-ai-card__content">
                         <h3 class="design-ai-card__title">Oracle Inventory Supply Chain Dashboard</h3>
                         <p class="design-ai-card__text">This project was designed and prototyped using Figma Make and OpenAI Codex. In the next phase, I presented it to several teams and stakeholders, interviewed users for feedback, and iterated the design based on findings.</p>
-                        <p class="design-ai-card__tools"><strong>Tools used:</strong> Claude, Figma, ChatGPT, CoPilot, Oracle Chat</p>
-                        <a href="dashboard.html" class="design-ai-btn">View prototype</a>
+                        <a href="dashboard.html" target="_blank" rel="noopener noreferrer" class="design-ai-btn">View prototype</a>
                     </div>
                 </article>
 
@@ -260,9 +306,7 @@
                     </div>
                     <div class="design-ai-card__content">
                         <h3 class="design-ai-card__title">The Medicine People</h3>
-                        <p class="design-ai-card__text">A collaborative project with the owner of an online holistic center offering herbal products, consultations, and education focused on plant‑based healing.</p>
-                        <p class="design-ai-card__note">Note: This project is still in progress.</p>
-                        <p class="design-ai-card__tools"><strong>Tools used:</strong> Claude, Figma, ChatGPT, CoPilot, Oracle Chat</p>
+                        <p class="design-ai-card__text">A collaborative project with the owner of an online holistic center offering herbal products, consultations, and education focused on plant‑based healing. <br><br>Note: This project is still in progress.</p>
                         <a href="https://medicine-people.com/" target="_blank" rel="noopener noreferrer" class="design-ai-btn">View website</a>
                     </div>
                 </article>
@@ -275,8 +319,7 @@
                     <div class="design-ai-card__content">
                         <h3 class="design-ai-card__title">Grocery Store Inventory Management</h3>
                         <p class="design-ai-card__text">This project explores how AI‑assisted tools can support a structured UX process, with potential application to Oracle Data Center Supply Chain Management products.</p>
-                        <p class="design-ai-card__tools"><strong>Tools used:</strong> Figma, Claude, ChatGPT, CoPilot, Oracle Chat</p>
-                        <a href="https://www.behance.net/gallery/248004677/AI-Powered-UX-Case-Study" target="_blank" rel="noopener noreferrer" class="design-ai-btn">View project</a>
+                        <a href="use-cases/inventory.html" target="_blank" rel="noopener noreferrer" class="design-ai-btn">View project</a>
                     </div>
                 </article>
 
@@ -287,8 +330,7 @@
                     </div>
                     <div class="design-ai-card__content">
                         <h3 class="design-ai-card__title">Portfolio website</h3>
-                        <p class="design-ai-card__text">I designed and coded this portfolio using several AI tools, including Claude, Figma, Figma Make, ChatGPT, and others.</p>
-                        <p class="design-ai-card__tools"><strong>Tools used:</strong> Claude, Figma, Figma Make, ChatGPT</p>
+                        <p class="design-ai-card__text">I built this portfolio using a range of AI tools for coding and content, which helped accelerate development and refine the overall presentation. Through this process, I became very comfortable with rapid prototyping and working across multiple AI tools.</p>
                         <a href="index.html" class="design-ai-btn">Go to homepage</a>
                     </div>
                 </article>
@@ -323,7 +365,7 @@
         </div>
         <div class="site-footer__meta">
             <p class="site-footer__disclaimer">All work presented here was created for my employers and is protected by copyright. It is shared here for viewing purposes only.</p>
-            <p class="site-footer__copyright">&copy; 2026 Larissa Starikova &middot; UX Lead &amp; AI Strategist / Senior Principal Designer</p>
+            <p class="site-footer__copyright">&copy; 2026 Larissa Starikova · UX Lead &amp; AI Strategist / Senior Principal Designer</p>
         </div>
     </footer>
 
