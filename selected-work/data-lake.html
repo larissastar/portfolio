@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Data Lake — Larissa Starikova's UX portfolio case study">
+    <title>Larissa Starikova | Data Lake</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        /* Page-specific styles for Data Lake case study */
+        .data-lake-header {
+            background: #FCE4EC;
+            padding: 4rem 1.25rem 3rem;
+            text-align: center;
+        }
+        
+        .data-lake-header__inner {
+            max-width: var(--max-w);
+            margin: 0 auto;
+        }
+        
+        .data-lake-header__title {
+            font-size: clamp(1.6rem, 3vw, 2.1rem);
+            font-weight: 700;
+            color: #1a2a2e;
+            margin: 0 0 1rem;
+            letter-spacing: -0.01em;
+        }
+        
+        .data-lake-header__text {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #2c4b4f;
+            max-width: 760px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #1a2a2e;
+            margin: 0 0 0.5rem;
+            letter-spacing: -0.01em;
+        }
+        
+        .section-subtitle {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #385f64;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        /* Role Section */
+        .role-section-wrapper {
+            background: #FFFFFF;
+            padding: 2rem 1.25rem;
+        }
+        
+        .role-box {
+            background: #FDF6F0;
+            padding: 2rem;
+            margin: 0 auto;
+            border-radius: 16px;
+            max-width: var(--max-w);
+        }
+        
+        /* Continuous vertical bar list style */
+        .bullet-list-vertical-bar {
+            margin: 0;
+            padding-left: 1rem;
+            list-style: none;
+            color: #2c4b4f;
+            line-height: 1.4;
+            border-left: 3px solid #00a8a1;
+        }
+        
+        .bullet-list-vertical-bar li {
+            margin-bottom: 0.5rem;
+            padding-left: 0.75rem;
+        }
+        
+        .bullet-list-vertical-bar li:last-child {
+            margin-bottom: 0;
+        }
+        
+        .bullet-list-vertical-bar li strong {
+            font-weight: 700;
+            color: #1a2a2e;
+        }
+        
+        .image-row-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+        
+        @media (max-width: 768px) {
+            .image-row-2col {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+        }
+        
+        .image-row-2col img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border: 1px solid rgba(0,0,0,0.3);
+        }
+        
+        /* Ensure both images in a row have equal height */
+        .image-row-2col {
+            align-items: stretch;
+        }
+        
+        .image-row-2col img {
+            object-fit: cover;
+            height: 100%;
+        }
+        
+        .image-centered {
+            width: 100%;
+            display: block;
+            border: 1px solid rgba(0,0,0,0.3);
+            margin: 1.5rem 0;
+        }
+        
+        .image-single-centered {
+            display: flex;
+            justify-content: center;
+            margin: 1.5rem 0;
+        }
+        
+        .image-single-centered img {
+            max-width: 80%;
+            display: block;
+            border: 1px solid rgba(0,0,0,0.3);
+        }
+        
+        /* No border for persona images */
+        .image-no-border {
+            border: none;
+        }
+        
+        @media (max-width: 768px) {
+            .image-single-centered img {
+                max-width: 100%;
+            }
+        }
+        
+        .research-section {
+            margin: 3rem 0;
+        }
+        
+        .research-header-label {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1a2a2e;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #00a8a1;
+            display: inline-block;
+        }
+        
+        .section-description {
+            color: #2c4b4f;
+            margin: 1rem 0 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .subsection-header {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #1a2a2e;
+            margin: 1.5rem 0 0.5rem;
+        }
+        
+        .outcomes-box {
+            background: #EFE6EE;
+            border-radius: 24px;
+            padding: 2rem;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        
+        .outcomes-box p {
+            color: #2c4b4f;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 0 1.25rem;
+        }
+        
+        .inline-link {
+            color: #2c4b4f;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+        
+        .inline-link:hover {
+            color: #0b0e0d;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- Main Navigation -->
+    <nav class="main-nav" aria-label="Primary">
+        <div class="main-nav__inner">
+            <div style="display:flex; align-items:center; gap:.25rem;">
+                <button id="menu-toggle" class="menu-toggle" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <line x1="4" y1="6" x2="20" y2="6"></line>
+                        <line x1="4" y1="12" x2="20" y2="12"></line>
+                        <line x1="4" y1="18" x2="20" y2="18"></line>
+                    </svg>
+                </button>
+                <a href="../index.html" class="main-nav__brand" style="text-decoration:none; color:inherit;">
+                    Larissa Starikova
+                    <span class="main-nav__brand-divider" style="color: rgb(255, 255, 255); opacity: 0.8">| UX Portfolio</span>
+                </a>
+            </div>
+
+            <ul class="main-nav__links" role="menubar">
+                <li role="none"><a href="../index.html" role="menuitem" class="main-nav__link">About</a></li>
+                <li role="none"><a href="../design-ai.html" role="menuitem" class="main-nav__link">Design With AI</a></li>
+                <li role="none"><a href="index.html" role="menuitem" class="main-nav__link is-active" aria-current="page">Selected Work</a></li>
+                <li role="none"><a href="../use-cases/" role="menuitem" class="main-nav__link">Use Cases &amp; Process</a></li>
+            </ul>
+
+            <div class="main-nav__social" aria-label="External profiles">
+                <a class="social-link" href="https://www.linkedin.com/in/larissastarikova/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <img src="../images/shared/linkedin-logo.svg" alt="LinkedIn" class="social-icon">
+                </a>
+                <a class="social-link" href="https://www.behance.net/deeporange" target="_blank" rel="noopener noreferrer" aria-label="Behance">
+                    <img src="../images/shared/behance-good.png" alt="Behance" class="social-icon">
+                </a>
+                <a class="social-link" href="https://vimeo.com/deeporange/videos" target="_blank" rel="noopener noreferrer" aria-label="Vimeo">
+                    <img src="../images/shared/vimeo-logo.svg" alt="Vimeo" class="social-icon">
+                </a>
+                <a class="social-link" href="/cdn-cgi/l/email-protection#305c51425943435143445142705f45445c5f5f5b1e535f5d" aria-label="Email">
+                    <img src="../images/shared/email-icon.svg" alt="Email" class="social-icon">
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu" role="dialog" aria-modal="true" aria-label="Site menu">
+        <div class="mobile-menu__head">
+            <div class="mobile-menu__brand">
+                <div class="mobile-menu__brand-name">Larissa Starikova</div>
+                <div class="mobile-menu__brand-sub">UX Portfolio</div>
+            </div>
+            <button id="mobile-menu-close" class="mobile-menu__close" aria-label="Close menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+        <ul class="mobile-menu__list">
+            <li><a href="../index.html" class="mobile-menu__link">About</a></li>
+            <li><a href="../design-ai.html" class="mobile-menu__link">Design With AI</a></li>
+            <li><a href="index.html" class="mobile-menu__link is-active" aria-current="page">Selected Work</a></li>
+            <li><a href="../use-cases/" class="mobile-menu__link">Use Cases &amp; Process</a></li>
+        </ul>
+    </div>
+
+    <!-- Sub-Navigation -->
+    <nav id="sub-nav-selected" class="sub-nav is-visible" aria-label="Selected work">
+        <div class="sub-nav__inner">
+            <button id="sub-nav-selected-left" class="sub-nav__arrow sub-nav__arrow--left" aria-label="Scroll left" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <div id="sub-nav-selected-scroller" class="sub-nav__scroller">
+                <ul class="sub-nav__list">
+                    <li><a href="index.html" class="sub-nav__link">Overview</a></li>
+                    <li><a href="passwordless.html" class="sub-nav__link">Passwordless</a></li>
+                    <li><a href="ai-chat.html" class="sub-nav__link">AI Chat</a></li>
+                    <li><a href="ai-products.html" class="sub-nav__link">AI Products</a></li>
+                    <li><a href="national-id.html" class="sub-nav__link">National ID</a></li>
+                    <li><a href="data-lake.html" class="sub-nav__link is-active" aria-current="page">Data Lake</a></li>
+                    <li><a href="data-center.html" class="sub-nav__link">Data Center Supply</a></li>
+                    <li><a href="templates.html" class="sub-nav__link">Templates</a></li>
+                </ul>
+            </div>
+            <button id="sub-nav-selected-right" class="sub-nav__arrow sub-nav__arrow--right" aria-label="Scroll right" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+        </div>
+    </nav>
+
+    <main id="main">
+
+        <!-- Top Section -->
+        <section class="data-lake-header">
+            <div class="data-lake-header__inner">
+                <h1 class="data-lake-header__title">Data Lakehouse</h1>
+                <p class="data-lake-header__text">I led design for the OCI (Oracle Cloud Infrastructure) Lakehouse experience, collaborating closely with product, engineering, and architecture teams to define key workflows and user needs through competitive analysis and persona development. I produced a large volume of high-fidelity designs and led formal design reviews to shape the MVP, while also identifying key gaps and opportunities for future improvements. <a href="https://www.oracle.com/big-data/what-is-data-lakehouse/#what-is" target="_blank" rel="noopener noreferrer" class="inline-link">Learn more</a></p>
+            </div>
+        </section>
+
+        <!-- ROLE & RESPONSIBILITIES Section -->
+        <div class="role-section-wrapper">
+            <div class="role-box">
+                <div class="section-subtitle">ROLE & RESPONSIBILITIES</div>
+                <ul class="bullet-list-vertical-bar">
+                    <li><strong>Primary Designer</strong> leading end-to-end experience design for the product</li>
+                    <li>Partnered closely with product managers, engineers, and architects to define direction and feasibility</li>
+                    <li>Conducted competitive analysis to inform product and interaction design decisions</li>
+                    <li>Defined key user personas and workflows</li>
+                    <li>Created ~400 screens covering most use cases and key scenarios, along with a high‑fidelity prototype</li>
+                    <li>Led and contributed to two formal design reviews for the MVP</li>
+                    <li>Identified gaps and opportunities to guide post-MVP improvements</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Section: User Problem and Personas -->
+        <div class="container">
+            <div class="research-section">
+                <div class="research-header-label">User Problem and Personas</div>
+                
+                <div class="subsection-header">User Problem</div>
+                <p class="section-description">Users struggle to find and work with data because it is spread across multiple systems and formats, requiring them to switch between tools. This fragmentation slows decision-making and makes it hard to trust the data. It also complicates access control, with permissions and roles managed across different systems. Users need a unified, intuitive way to explore and analyze data, with clear and consistent governance.</p>
+                
+                <div class="subsection-header">Personas</div>
+                <p class="section-description">We defined 4 main personas</p>
+                <div class="image-single-centered">
+                    <img src="../images/selected-work/data-lake/lake-personas.png" alt="Data Lake personas" style="border: none;">
+                </div>
+            </div>
+
+            <!-- Section: Figma screens -->
+            <div class="research-section">
+                <div class="research-header-label">Figma Screens</div>
+                <p class="section-description">I created about 400 screens in Figma covering along with a high‑fidelity prototype and passed two formal design reviews for the MVP.</p>
+                <div class="image-single-centered">
+                    <img src="../images/selected-work/data-lake/lake-figma.png" alt="Figma screens for Data Lake">
+                </div>
+            </div>
+
+            <!-- Section: Dashboard and Metrics -->
+            <div class="research-section">
+                <div class="research-header-label">Dashboard and Metrics</div>
+                <p class="section-description">The dashboard provides a centralized view of key metrics, data lake health, and recent activity to help users monitor and manage their data assets efficiently.</p>
+                <div class="image-row-2col">
+                    <img src="../images/selected-work/data-lake/lake_01.png" alt="Dashboard metrics view 1">
+                    <img src="../images/selected-work/data-lake/lake_02.png" alt="Dashboard metrics view 2">
+                </div>
+            </div>
+
+            <!-- Section: Main pages -->
+            <div class="research-section">
+                <div class="research-header-label">Main Pages</div>
+                <p class="section-description">This section showcases Lakehouse page, Databases, Mounts and Roles, providing a comprehensive overview of the core navigation and resource management areas.</p>
+                <div class="image-row-2col">
+                    <img src="../images/selected-work/data-lake/lake_03.png" alt="Lakehouse main page">
+                    <img src="../images/selected-work/data-lake/lake_04.png" alt="Databases view">
+                </div>
+                <div class="image-row-2col">
+                    <img src="../images/selected-work/data-lake/lake_05.png" alt="Mounts view">
+                    <img src="../images/selected-work/data-lake/lake_06.png" alt="Roles view">
+                </div>
+            </div>
+
+            <!-- Section: Internal pages -->
+            <div class="research-section">
+                <div class="research-header-label">Internal Pages</div>
+                <p class="section-description">This sections shows details pages for a Database and a Mount, allowing users to view and manage specific resource configurations.</p>
+                <div class="image-row-2col">
+                    <img src="../images/selected-work/data-lake/lake_07.png" alt="Database details page">
+                    <img src="../images/selected-work/data-lake/lake_08.png" alt="Mount details page">
+                </div>
+            </div>
+
+            <!-- Section: Side Panels -->
+            <div class="research-section">
+                <div class="research-header-label">Side Panels</div>
+                <p class="section-description">Here you can see the usage of side panels according to the OCI design patterns, providing contextual actions and information without leaving the main page.</p>
+                <div class="image-row-2col">
+                    <img src="../images/selected-work/data-lake/lake_09.png" alt="Side panel example 1">
+                    <img src="../images/selected-work/data-lake/lake_10.png" alt="Side panel example 2">
+                </div>
+                <div class="image-row-2col">
+                    <img src="../images/selected-work/data-lake/lake_11.png" alt="Side panel example 3">
+                    <img src="../images/selected-work/data-lake/lake_12.png" alt="Side panel example 4">
+                </div>
+            </div>
+
+            <!-- Section: Dialog -->
+            <div class="research-section">
+                <div class="research-header-label">Dialog</div>
+                <p class="section-description">Usage of the dialog component is demoed here. Note the dialog that requires validation, a very common OCI pattern that forces users to type the command name and prevents accidental deletion.</p>
+                <div class="image-row-2col">
+                    <img src="../images/selected-work/data-lake/lake_13.png" alt="Dialog confirmation example">
+                    <img src="../images/selected-work/data-lake/lake_14.png" alt="Dialog validation example">
+                </div>
+            </div>
+
+            <!-- Section: Table Creation Stepper -->
+            <div class="research-section">
+                <div class="research-header-label">Table Creation Stepper</div>
+                <p class="section-description">A stepper pattern for creating a table is showcased here, guiding users through a multi-step process with clear progress indication.</p>
+                <div class="image-row-2col">
+                    <img src="../images/selected-work/data-lake/lake_15.png" alt="Table creation stepper step 1">
+                    <img src="../images/selected-work/data-lake/lake_16.png" alt="Table creation stepper step 2">
+                </div>
+                <div class="image-row-2col">
+                    <img src="../images/selected-work/data-lake/lake_17.png" alt="Table creation stepper step 3">
+                    <img src="../images/selected-work/data-lake/lake_18.png" alt="Table creation stepper step 4">
+                </div>
+                <div class="image-single-centered">
+                    <img src="../images/selected-work/data-lake/lake_19.png" alt="Table creation stepper final view">
+                </div>
+            </div>
+
+            <!-- Key Insights Section -->
+            <div class="outcomes-box">
+                <div class="section-subtitle">KEY INSIGHTS</div>
+                <p>Through this project, we learned that a unified data lakehouse experience significantly reduces the friction users face when working with data spread across multiple systems. The ~400 screens and high-fidelity prototype provided a solid foundation for the MVP, while formal design reviews helped align stakeholders and prioritize features. Post-MVP opportunities identified include deeper integrations, enhanced governance controls, and more intuitive data exploration tools to further empower users in their data journey.</p>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer" aria-labelledby="footer-title">
+        <div class="site-footer__band">
+            <h2 id="footer-title" class="site-footer__title">Let's work together</h2>
+            <p class="site-footer__text">Check out my older <a class="footer-style-link" href="https://www.behance.net/deeporange" target="_blank" rel="noopener noreferrer">Behance Portfolio</a>, <a class="footer-style-link" href="https://www.linkedin.com/in/larissastarikova/" target="_blank" rel="noopener noreferrer">LinkedIn profile</a> and motion graphics on <a class="footer-style-link" href="https://vimeo.com/deeporange/videos" target="_blank" rel="noopener noreferrer">Vimeo</a>.<br>Resume is available upon request.<br>Looking forward to connecting!</p>
+
+            <div class="site-footer__social" aria-label="Get in touch">
+                <a class="social-link" href="https://www.linkedin.com/in/larissastarikova/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <img src="../images/shared/linkedin-logo.svg" alt="LinkedIn" class="social-icon">
+                </a>
+                <a class="social-link" href="https://www.behance.net/deeporange" target="_blank" rel="noopener noreferrer" aria-label="Behance">
+                    <img src="../images/shared/behance-good.png" alt="Behance" class="social-icon">
+                </a>
+                <a class="social-link" href="https://vimeo.com/deeporange/videos" target="_blank" rel="noopener noreferrer" aria-label="Vimeo">
+                    <img src="../images/shared/vimeo-logo.svg" alt="Vimeo" class="social-icon">
+                </a>
+                <a class="social-link" href="/cdn-cgi/l/email-protection#305c51425943435143445142705f45445c5f5f5b1e535f5d" aria-label="Email">
+                    <img src="../images/shared/email-icon.svg" alt="Email" class="social-icon">
+                </a>
+            </div>
+        </div>
+        <div class="site-footer__meta">
+            <p class="site-footer__disclaimer">All work presented here was created for my employers and is protected by copyright. It is shared here for viewing purposes only.</p>
+            <p class="site-footer__copyright">© 2026 Larissa Starikova · UX Lead &amp; AI Strategist / Senior Principal Designer</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js" defer></script>
+    <script>
+    (function() {
+        'use strict';
+        
+        var scroller = document.getElementById('sub-nav-selected-scroller');
+        var leftArrow = document.getElementById('sub-nav-selected-left');
+        var rightArrow = document.getElementById('sub-nav-selected-right');
+        var subNav = document.getElementById('sub-nav-selected');
+        
+        if (!scroller) return;
+        
+        function checkArrows() {
+            var hasOverflow = scroller.scrollWidth > scroller.clientWidth + 1;
+            var atStart = scroller.scrollLeft <= 2;
+            var atEnd = scroller.scrollLeft + scroller.clientWidth >= scroller.scrollWidth - 2;
+            
+            if (leftArrow) leftArrow.classList.toggle('is-visible', hasOverflow && !atStart);
+            if (rightArrow) rightArrow.classList.toggle('is-visible', hasOverflow && !atEnd);
+        }
+        
+        if (leftArrow) leftArrow.addEventListener('click', () => scroller.scrollBy({ left: -180, behavior: 'smooth' }));
+        if (rightArrow) rightArrow.addEventListener('click', () => scroller.scrollBy({ left: 180, behavior: 'smooth' }));
+        
+        scroller.addEventListener('scroll', checkArrows);
+        window.addEventListener('resize', checkArrows);
+        setTimeout(checkArrows, 100);
+        
+        function updateShadow() {
+            if (!subNav) return;
+            subNav.classList.toggle('has-shadow', window.scrollY > 8);
+        }
+        window.addEventListener('scroll', () => requestAnimationFrame(updateShadow), { passive: true });
+        updateShadow();
+    })();
+    </script>
+</body>
+</html>

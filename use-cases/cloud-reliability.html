@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cloud Reliability Platform — Larissa Starikova's UX portfolio case study">
+    <title>Larissa Starikova | Cloud Reliability Platform</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        /* Page-specific styles for case study - AA compliant colors */
+        .case-header {
+            background: var(--bg-warm-cream);
+            padding: 4rem 1.25rem 3rem;
+            text-align: center;
+        }
+        
+        .case-header__inner {
+            max-width: var(--max-w);
+            margin: 0 auto;
+        }
+        
+        .case-header__title {
+            font-size: clamp(1.6rem, 3vw, 2.1rem);
+            font-weight: 700;
+            color: #1a2a2e;
+            margin: 0 0 1rem;
+            letter-spacing: -0.01em;
+        }
+        
+        .case-header__subtitle {
+            font-size: 1.1rem;
+            color: #2c4b4f;
+            max-width: 760px;
+            margin: 0 auto 1rem;
+            line-height: 1.6;
+        }
+        
+        .case-header__role {
+            font-size: 1rem;
+            color: #2c4b4f;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #1a2a2e;
+            margin: 0 0 0.5rem;
+            letter-spacing: -0.01em;
+        }
+        
+        .section-subtitle {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #385f64;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .problem-box-rounded {
+            background: #F3F8F5;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 16px;
+        }
+        
+        .problem-text {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #2c4b4f;
+            margin: 0;
+        }
+        
+        .problem-text-italic {
+            font-style: italic;
+            color: #1a2a2e;
+            margin-top: 0.75rem;
+            padding-left: 1rem;
+            border-left: 3px solid #00a8a1;
+        }
+        
+        /* Persona section - images without borders */
+        .persona-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .persona-item {
+            width: 100%;
+        }
+        
+        .persona-header-label {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #2c4b4f;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+        }
+        
+        .persona-image {
+            width: 100%;
+            display: block;
+            border: none;
+        }
+        
+        .persona-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .persona-row {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+        
+        .two-col-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        @media (max-width: 768px) {
+            .two-col-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .insight-card {
+            background: #F3F8F5;
+            padding: 1.5rem;
+            border-radius: 16px;
+        }
+        
+        .insight-card-alt {
+            background: #D9E8E9;
+            padding: 1.5rem;
+            border-radius: 16px;
+        }
+        
+        .workshop-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #385f64;
+            line-height: 1;
+        }
+        
+        .timeline-step {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .timeline-number {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #1a2a2e;
+            min-width: 24px;
+        }
+        
+        .workflow-compare {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        @media (max-width: 768px) {
+            .workflow-compare {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .workflow-card {
+            background: #EFE6EE;
+            padding: 1.5rem;
+            border-radius: 16px;
+        }
+        
+        .workflow-card--future {
+            background: #F3F8F5;
+            border-radius: 16px;
+        }
+        
+        .workflow-quote {
+            margin-top: 1rem;
+            font-style: italic;
+            color: #2c4b4f;
+        }
+        
+        .competitor-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        @media (max-width: 768px) {
+            .competitor-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .competitor-card {
+            overflow: hidden;
+            border-radius: 16px;
+        }
+        
+        .competitor-card--moogsoft {
+            background: #DFECE7;
+        }
+        
+        .competitor-card--datadog {
+            background: #E6F8FC;
+        }
+        
+        .competitor-header {
+            padding: 1.5rem 1.5rem 0.5rem;
+        }
+        
+        .competitor-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a2a2e;
+            margin: 0;
+        }
+        
+        .competitor-image {
+            margin: 1rem 1.5rem;
+        }
+        
+        .competitor-findings {
+            padding: 1rem 1.5rem 1.5rem;
+        }
+        
+        .research-summary {
+            background: #FDF6F0;
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .research-summary p {
+            margin: 0 0 0.75rem;
+            color: #2c4b4f;
+            line-height: 1.6;
+        }
+        
+        .research-summary ul {
+            margin: 0.5rem 0 0;
+            padding-left: 1.25rem;
+            color: #2c4b4f;
+        }
+        
+        .questions-text {
+            color: #2c4b4f;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+        
+        .spec-card {
+            background: white;
+            border: 1px solid rgba(0,0,0,0.3);
+            overflow: hidden;
+            border-radius: 12px;
+        }
+        
+        .spec-card__header {
+            background: #eef5f5;
+            padding: 1rem;
+            font-weight: 600;
+            border-bottom: 1px solid rgba(0,0,0,0.3);
+        }
+        
+        .spec-card__content {
+            padding: 1rem;
+        }
+        
+        .script-images-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .script-images-row {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .script-image-card {
+            overflow: hidden;
+        }
+        
+        .script-image-label {
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: #2c4b4f;
+        }
+        
+        .plain-image {
+            width: 100%;
+            display: block;
+            border: 1px solid rgba(0,0,0,0.3);
+        }
+        
+        .pitch-section {
+            margin: 1.5rem 0;
+        }
+        
+        .pitch-header {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #2c4b4f;
+            margin-bottom: 0.5rem;
+        }
+        
+        .pitch-description {
+            font-size: 0.95rem;
+            color: #2c4b4f;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+        
+        .pitch-images-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        @media (max-width: 900px) {
+            .pitch-images-row {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .pitch-images-row {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .pitch-image {
+            width: 100%;
+            display: block;
+            border: 1px solid rgba(0,0,0,0.3);
+        }
+        
+        .exploration-row {
+            margin-bottom: 2rem;
+        }
+        
+        .exploration-header {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #2c4b4f;
+            margin: 1.5rem 0 1rem;
+        }
+        
+        .exploration-header:first-of-type {
+            margin-top: 0;
+        }
+        
+        .image-grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .image-grid-3col {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        @media (max-width: 900px) {
+            .image-grid-3col {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .image-grid-2col, .image-grid-3col {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .exploration-image {
+            width: 100%;
+            display: block;
+            border: 1px solid rgba(0,0,0,0.3);
+        }
+        
+        .template-images-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 1rem 0;
+        }
+        
+        @media (max-width: 768px) {
+            .template-images-row {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+        
+        .template-image {
+            width: 100%;
+            display: block;
+            border: 1px solid rgba(0,0,0,0.3);
+        }
+        
+        .outcomes-box {
+            background: #DFECE7;
+            border-radius: 24px;
+            padding: 2rem;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        
+        .final-ui-desktop {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 1.5rem 0 2rem;
+            align-items: start;
+        }
+        
+        .final-ui-column {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .final-ui-image {
+            width: 100%;
+            display: block;
+            border: 1px solid rgba(0,0,0,0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .final-ui-desktop {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .final-ui-column {
+                gap: 1rem;
+            }
+        }
+        
+        .spec-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .spec-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .user-research-intro {
+            color: #2c4b4f;
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- Main Navigation -->
+    <nav class="main-nav" aria-label="Primary">
+        <div class="main-nav__inner">
+            <div style="display:flex; align-items:center; gap:.25rem;">
+                <button id="menu-toggle" class="menu-toggle" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <line x1="4" y1="6" x2="20" y2="6"></line>
+                        <line x1="4" y1="12" x2="20" y2="12"></line>
+                        <line x1="4" y1="18" x2="20" y2="18"></line>
+                    </svg>
+                </button>
+                <a href="../index.html" class="main-nav__brand" style="text-decoration:none; color:inherit;">
+                    Larissa Starikova
+                    <span class="main-nav__brand-divider" style="color: rgb(255, 255, 255); opacity: 0.8">| UX Portfolio</span>
+                </a>
+            </div>
+
+            <ul class="main-nav__links" role="menubar">
+                <li role="none"><a href="../index.html" role="menuitem" class="main-nav__link">About</a></li>
+                <li role="none"><a href="../design-ai.html" role="menuitem" class="main-nav__link">Design With AI</a></li>
+                <li role="none"><a href="../selected-work/index.html" role="menuitem" class="main-nav__link">Selected Work</a></li>
+                <li role="none"><a href="index.html" role="menuitem" class="main-nav__link is-active" aria-current="page">Use Cases &amp; Process</a></li>
+            </ul>
+
+            <div class="main-nav__social" aria-label="External profiles">
+                <a class="social-link" href="https://www.linkedin.com/in/larissastarikova/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <img src="../images/shared/linkedin-logo.svg" alt="LinkedIn" class="social-icon">
+                </a>
+                <a class="social-link" href="https://www.behance.net/deeporange" target="_blank" rel="noopener noreferrer" aria-label="Behance">
+                    <img src="../images/shared/behance-good.png" alt="Behance" class="social-icon">
+                </a>
+                <a class="social-link" href="https://vimeo.com/deeporange/videos" target="_blank" rel="noopener noreferrer" aria-label="Vimeo">
+                    <img src="../images/shared/vimeo-logo.svg" alt="Vimeo" class="social-icon">
+                </a>
+                <a class="social-link" href="/cdn-cgi/l/email-protection#305c51425943435143445142705f45445c5f5f5b1e535f5d" aria-label="Email">
+                    <img src="../images/shared/email-icon.svg" alt="Email" class="social-icon">
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu" role="dialog" aria-modal="true" aria-label="Site menu">
+        <div class="mobile-menu__head">
+            <div class="mobile-menu__brand">
+                <div class="mobile-menu__brand-name">Larissa Starikova</div>
+                <div class="mobile-menu__brand-sub">UX Portfolio</div>
+            </div>
+            <button id="mobile-menu-close" class="mobile-menu__close" aria-label="Close menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+        <ul class="mobile-menu__list">
+            <li><a href="../index.html" class="mobile-menu__link">About</a></li>
+            <li><a href="../design-ai.html" class="mobile-menu__link">Design With AI</a></li>
+            <li><a href="../selected-work/index.html" class="mobile-menu__link">Selected Work</a></li>
+            <li><a href="index.html" class="mobile-menu__link is-active" aria-current="page">Use Cases &amp; Process</a></li>
+        </ul>
+    </div>
+
+    <!-- Sub-Navigation -->
+    <nav id="sub-nav-cases" class="sub-nav is-visible" aria-label="Use cases and process">
+        <div class="sub-nav__inner">
+            <button id="sub-nav-cases-left" class="sub-nav__arrow sub-nav__arrow--left" aria-label="Scroll left" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <div id="sub-nav-cases-scroller" class="sub-nav__scroller">
+                <ul class="sub-nav__list">
+                    <li><a href="index.html" class="sub-nav__link">Overview</a></li>
+                    <li><a href="cloud-reliability.html" class="sub-nav__link is-active" aria-current="page">Cloud Reliability Platform</a></li>
+                    <li><a href="inventory.html" class="sub-nav__link">Inventory Management</a></li>
+                    <li><a href="research.html" class="sub-nav__link">Research Project</a></li>
+                </ul>
+            </div>
+            <button id="sub-nav-cases-right" class="sub-nav__arrow sub-nav__arrow--right" aria-label="Scroll right" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+        </div>
+    </nav>
+
+    <main id="main">
+
+        <!-- Top Section - Integrated Role -->
+        <section class="case-header">
+            <div class="case-header__inner">
+                <h1 class="case-header__title">Cloud Reliability Platform</h1>
+                <p class="case-header__subtitle">A unified incident management and service health platform designed to reduce tool fragmentation and improve response time across cloud service teams.</p>
+                <p class="case-header__role">My role: Lead UX Designer. I conducted interviews and remote workshops with 20+ participants across multiple Business Industries, gathered requirements, created personas, and collaborated closely with product owners, engineers, and scrum masters. I also defined and designed several reusable templates that could scale across different cloud services, ensuring consistency and reducing design debt.</p>
+            </div>
+        </section>
+
+        <div class="container" style="padding: 1rem 1.25rem 3rem;">
+            
+            <!-- User Problem and Pitch - Text only in box -->
+            <div class="problem-box-rounded">
+                <div class="section-subtitle">USER PROBLEM & PITCH</div>
+                <p class="problem-text">I worked closely with Product Management to define this problem statement before we presented the concept to leadership.</p>
+                <div class="problem-text-italic">"The cloud service teams are operating services with a portfolio of tools and services that support incident/change workflow, communications, visibility and insight. Interacting with individual tools leads to duplication of effort and inconsistency. Innovation by individual teams in this area rarely benefits other teams and organizations that are working to enhance customers' experience."</div>
+            </div>
+            
+            <!-- Pitch Images below the box -->
+            <div class="pitch-section">
+                <div class="pitch-header">Pitch visuals</div>
+                <div class="pitch-description">I was actively involved in presenting the pitch to leadership alongside the product and development teams, which led to project approval and funding.</div>
+                <div class="pitch-images-row">
+                    <img src="../images/use-cases/cloud-reliability/pitch-1.png" alt="Pitch image 1" class="pitch-image">
+                    <img src="../images/use-cases/cloud-reliability/pitch-2.png" alt="Pitch image 2" class="pitch-image">
+                    <img src="../images/use-cases/cloud-reliability/pitch-3.png" alt="Pitch image 3" class="pitch-image">
+                </div>
+            </div>
+
+            <!-- PERSONAS SECTION -->
+            <div style="margin: 3rem 0;">
+                <div class="section-subtitle">UNDERSTANDING OUR USERS</div>
+                <h2 class="section-title">Personas</h2>
+                <p style="color: #2c4b4f; margin-bottom: 1.5rem;">Through research and workshops, I identified five key personas representing different roles across cloud service teams.</p>
+                
+                <div class="persona-stack">
+                    <div class="persona-item">
+                        <div class="persona-header-label">5 Defined Personas</div>
+                        <img src="../images/use-cases/cloud-reliability/persona-cards.png" alt="5 defined personas overview" class="persona-image">
+                    </div>
+                    <div class="persona-item">
+                        <div class="persona-header-label">Detailed Personas</div>
+                        <div class="persona-row">
+                            <img src="../images/use-cases/cloud-reliability/persona-eng-full.png" alt="Site Reliability Engineer persona details" class="persona-image">
+                            <img src="../images/use-cases/cloud-reliability/persona-vp-full.png" alt="Vice President of Development persona details" class="persona-image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Current vs Future State and Workflow Scripts -->
+            <div style="margin: 3rem 0;">
+                <div class="section-subtitle">WORKFLOW ANALYSIS</div>
+                <h2 class="section-title">Current vs Future State and Workflow Scripts</h2>
+                <p style="color: #2c4b4f; margin-bottom: 1.5rem;">Mapping the incident response journey revealed significant friction points and opportunities for improvement.</p>
+                
+                <!-- Workflow Scripts Images - Side by Side (on top) -->
+                <div class="script-images-row">
+                    <div class="script-image-card">
+                        <div class="script-image-label">Current State Workflow Script</div>
+                        <img src="../images/use-cases/cloud-reliability/script-current.png" alt="Current state workflow script" class="plain-image">
+                    </div>
+                    <div class="script-image-card">
+                        <div class="script-image-label">Future State Workflow Script (Arena Platform)</div>
+                        <img src="../images/use-cases/cloud-reliability/script-future.png" alt="Future state workflow script" class="plain-image">
+                    </div>
+                </div>
+                
+                <!-- Cards below the images -->
+                <div class="workflow-compare">
+                    <div class="workflow-card">
+                        <h3 style="margin: 0 0 1rem; color: #1a2a2e;">Current State</h3>
+                        <div class="timeline-step">
+                            <div class="timeline-number">1.</div>
+                            <div><strong>Carmen is contacted by a customer</strong> — problem reported, but no visibility into what's wrong</div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="timeline-number">2.</div>
+                            <div><strong>Carl checks monitoring</strong> — sees potential performance issues but no clear incident</div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="timeline-number">3.</div>
+                            <div><strong>No ticket exists</strong> — Carl checks ticketing system and Slack, finds nothing</div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="timeline-number">4.</div>
+                            <div><strong>Reaches out to colleagues</strong> — manually checks with internal service teams</div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="timeline-number">5.</div>
+                            <div><strong>Finally joins Slack channel</strong> — monitors progress, customers updated via email</div>
+                        </div>
+                        <div class="workflow-quote">"It took me so long to find out what is wrong! We need a faster way."</div>
+                    </div>
+                    
+                    <div class="workflow-card workflow-card--future">
+                        <h3 style="margin: 0 0 1rem; color: #1a2a2e;">Future State (Arena Platform)</h3>
+                        <div class="timeline-step">
+                            <div class="timeline-number">1.</div>
+                            <div><strong>Sam sees alert in Arena</strong> — notification generated from monitoring data</div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="timeline-number">2.</div>
+                            <div><strong>Clicks notification</strong> — sees ticket generated for the incident automatically</div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="timeline-number">3.</div>
+                            <div><strong>Impact Analysis tool</strong> — examines list of affected customers instantly</div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="timeline-number">4.</div>
+                            <div><strong>Joins Situation Room</strong> — one-click access to collaboration space</div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="timeline-number">5.</div>
+                            <div><strong>Sends targeted communications</strong> — keeps customers updated automatically</div>
+                        </div>
+                        <div class="workflow-quote">"This is a great collaboration tool! It is so easy now to notify affected customers."</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Design Workshops -->
+            <div style="margin: 3rem 0;">
+                <div class="section-subtitle">DISCOVERY & COLLABORATION</div>
+                <h2 class="section-title">Design Workshops</h2>
+                
+                <div class="workshop-stats">
+                    <div style="text-align: center;">
+                        <div class="stat-number">5</div>
+                        <div style="color: #2c4b4f;">Remote Workshops</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div class="stat-number">20+</div>
+                        <div style="color: #2c4b4f;">Participants</div>
+                    </div>
+                    <div style="text-align: center">
+                        <div class="stat-number">4</div>
+                        <div style="color: #2c4b4f;">Business Industries</div>
+                    </div>
+                </div>
+                
+                <div class="two-col-layout">
+                    <div class="insight-card">
+                        <p style="color: #2c4b4f; line-height: 1.6; margin: 0;">I conducted 5 remote workshops using Zoom and Confluence for collaboration. Each workshop focused on a specific aspect of the platform: MVP Dashboard requirements gathering, Persona validation and scenario mapping, Status Page design requirements, Executive and support persona views, and Cross-team collaboration workflows.</p>
+                    </div>
+                    <div class="insight-card-alt">
+                        <div style="font-weight: 700; margin-bottom: 0.5rem; color: #1a2a2e;">Key workshop outcomes:</div>
+                        <ul style="margin: 0; padding-left: 1.25rem; color: #2c4b4f;">
+                            <li>Validated 5 core personas</li>
+                            <li>Defined MVP dashboard requirements</li>
+                            <li>Identified 3 design directions</li>
+                            <li>Established role-based views</li>
+                            <li>Prioritized features for release</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Competitive Analysis -->
+            <div style="margin: 3rem 0;">
+                <div class="section-subtitle">RESEARCH</div>
+                <h2 class="section-title">Competitive Analysis</h2>
+                <p style="color: #2c4b4f; margin-bottom: 1.5rem;">I analyzed competing platforms to understand market positioning and identify opportunities for differentiation.</p>
+                
+                <div class="competitor-grid">
+                    <div class="competitor-card competitor-card--moogsoft">
+                        <div class="competitor-header">
+                            <h3 class="competitor-name">Moogsoft</h3>
+                            <p style="margin: 0.5rem 0 0; color: #2c4b4f;">AIOps Platform</p>
+                        </div>
+                        <div class="competitor-image">
+                            <img src="../images/use-cases/cloud-reliability/comp-moogsoft.png" alt="Moogsoft platform interface" class="plain-image">
+                        </div>
+                        <div class="competitor-findings">
+                            <p style="margin: 0; font-weight: 600; color: #1a2a2e;">Key Findings:</p>
+                            <ul style="margin: 0.5rem 0 0; padding-left: 1.25rem; color: #2c4b4f;">
+                                <li>Strong AI-driven incident correlation</li>
+                                <li>Robust ingestion and metrics capabilities</li>
+                                <li>Effective collaboration features for ops teams</li>
+                                <li>Steep learning curve for new users</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="competitor-card competitor-card--datadog">
+                        <div class="competitor-header">
+                            <h3 class="competitor-name">DataDog</h3>
+                            <p style="margin: 0.5rem 0 0; color: #2c4b4f;">Monitoring & Analytics Platform</p>
+                        </div>
+                        <div class="competitor-image">
+                            <img src="../images/use-cases/cloud-reliability/comp-datadog.png" alt="DataDog dashboard interface" class="plain-image">
+                        </div>
+                        <div class="competitor-findings">
+                            <p style="margin: 0; font-weight: 600; color: #1a2a2e;">Key Findings:</p>
+                            <ul style="margin: 0.5rem 0 0; padding-left: 1.25rem; color: #2c4b4f;">
+                                <li>Excellent data aggregation and visualization</li>
+                                <li>Great interactive dashboards</li>
+                                <li>Strong real-time data exploration</li>
+                                <li>Can be overwhelming with data density</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WIREFRAMES AND EXPLORATIONS -->
+            <div style="margin: 3rem 0;">
+                <div class="section-subtitle">EXPLORATION</div>
+                <h2 class="section-title">Wireframes and Explorations</h2>
+                <p style="color: #2c4b4f; margin-bottom: 1.5rem;">I started with hand sketches to rapidly explore ideas, then moved to Figma for digital wireframes and high-fidelity designs.</p>
+                
+                <!-- Hand Sketches Row - 3 images -->
+                <div class="exploration-row">
+                    <div class="exploration-header">Hand sketches</div>
+                    <div class="image-grid-3col">
+                        <img src="../images/use-cases/cloud-reliability/arena-sketch-1.png" alt="Hand sketch of Arena dashboard - version 1" class="exploration-image">
+                        <img src="../images/use-cases/cloud-reliability/arena-sketch-2.png" alt="Hand sketch of Arena dashboard - version 2" class="exploration-image">
+                        <img src="../images/use-cases/cloud-reliability/arena-sketch-3.png" alt="Hand sketch of Arena dashboard - version 3" class="exploration-image">
+                    </div>
+                </div>
+                
+                <!-- Figma Sketches Section -->
+                <div class="exploration-row">
+                    <div class="exploration-header">Figma sketches</div>
+                    <div class="image-grid-2col">
+                        <img src="../images/use-cases/cloud-reliability/arena-dig-sketch-01.png" alt="Figma digital sketch - dashboard overview" class="exploration-image">
+                        <img src="../images/use-cases/cloud-reliability/arena-dig-sketch-02.png" alt="Figma digital sketch - incident view" class="exploration-image">
+                    </div>
+                    <div class="image-grid-2col" style="margin-top: 1rem;">
+                        <img src="../images/use-cases/cloud-reliability/arena-dig-sketch-03.png" alt="Figma digital sketch - collaboration view" class="exploration-image">
+                        <img src="../images/use-cases/cloud-reliability/arena-dig-sketch-04.png" alt="Figma digital sketch - analytics dashboard" class="exploration-image">
+                    </div>
+                </div>
+            </div>
+
+            <!-- User Interviews and Usability Tests -->
+            <div style="margin: 3rem 0;">
+                <div class="section-subtitle">USER RESEARCH</div>
+                <h2 class="section-title">User Interviews and Usability Tests</h2>
+                
+                <!-- Consolidated intro paragraph -->
+                <p class="user-research-intro">I conducted comprehensive user research with <strong>5 participants</strong> to validate designs and uncover areas for improvement. To structure our research across all 5 participants, I designed two templates that helped standardize data collection across multiple user interviews and usability test sessions.</p>
+                
+                <h3 style="font-size: 1.1rem; margin: 0.5rem 0 0.75rem; color: #1a2a2e;">Usability Testing & Interview Templates</h3>
+                
+                <div class="spec-grid">
+                    <div class="spec-card">
+                        <div class="spec-card__header">Template 1: Usability Test Task Matrix</div>
+                        <div class="spec-card__content">
+                            <p class="questions-text"><strong>Questions, tasks and criteria:</strong> Task Group · Task · UI Screen · User Behavior · Product Improvement</p>
+                            <p style="font-size: 0.85rem; color: #2c4b4f; margin-top: 0.75rem;">This matrix allowed me to track each user's journey through specific tasks, document UI screens where they encountered friction, and directly link observed behaviors to actionable product improvements.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="spec-card">
+                        <div class="spec-card__header">Template 2: User Interview Feedback Card</div>
+                        <div class="spec-card__content">
+                            <p class="questions-text"><strong>Questions, tasks and criteria:</strong> Name · Role · Overall Rating (1-5) · Area · Scale 1-5 · Notes</p>
+                            <p style="font-size: 0.85rem; color: #2c4b4f; margin-top: 0.75rem;">Each interview participant received a standardized feedback card where they rated different aspects of the platform on a 1-5 scale and provided qualitative notes. This helped identify patterns across all 5 users and prioritize fixes.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Combined Research Summary -->
+                <div class="research-summary">
+                    <p><strong>Research synthesis & key iterations:</strong> We interviewed 5 users across different roles (SREs, Support Engineers, Delivery Managers). Each session used the Task Matrix to track 8–10 core tasks and the Feedback Card to capture 1–5 scale ratings.</p>
+                    <p>Patterns emerged across all 5 participants: 4 out of 5 struggled with finding customer impact information; average satisfaction for notification workflow was 2.8/5.</p>
+                    <p><strong>Based on these findings, I made the following iterations:</strong></p>
+                    <ul>
+                        <li>Simplified dashboard layout — consolidated 5 views into 3 role-based views</li>
+                        <li>Added customer impact preview on incident cards</li>
+                        <li>Redesigned notification workflow with template messages and one-click send</li>
+                        <li>Added contextual help tooltips for complex workflows</li>
+                        <li>Implemented saved filter preferences across sessions</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- DESIGN SYSTEM: Component Specifications & Templates -->
+            <div style="margin: 3rem 0;">
+                <div class="section-subtitle">DESIGN SYSTEM</div>
+                <h2 class="section-title">Component Specifications & Templates</h2>
+                <p style="color: #2c4b4f; margin-bottom: 1rem;">I defined several reusable components and templates to ensure consistency across the platform and scalability.</p>
+                
+                <div class="template-images-row">
+                    <img src="../images/use-cases/cloud-reliability/spec-1.png" alt="Card component specifications - part 1" class="template-image">
+                    <img src="../images/use-cases/cloud-reliability/spec-2.png" alt="Card component specifications - part 2" class="template-image">
+                </div>
+            </div>
+
+            <!-- FINAL DESIGN: Platform UI Highlights -->
+            <div style="margin: 3rem 0;">
+                <div class="section-subtitle">FINAL DESIGN</div>
+                <h2 class="section-title">Platform UI Highlights</h2>
+                <p style="color: #2c4b4f; margin-bottom: 0.75rem;">The final design unified incident management, collaboration, and analytics into a cohesive experience.</p>
+                
+                <div class="final-ui-desktop">
+                    <div class="final-ui-column">
+                        <img src="../images/use-cases/cloud-reliability/design-01.png" alt="Dashboard overview" class="final-ui-image">
+                        <img src="../images/use-cases/cloud-reliability/design-05.png" alt="Incident analysis view" class="final-ui-image">
+                        <img src="../images/use-cases/cloud-reliability/design-04.png" alt="Compliance dashboard" class="final-ui-image">
+                    </div>
+                    <div class="final-ui-column">
+                        <img src="../images/use-cases/cloud-reliability/design-02.png" alt="Status page and notifications" class="final-ui-image">
+                        <img src="../images/use-cases/cloud-reliability/design-03.png" alt="Collaboration hub" class="final-ui-image">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Outcomes Summary - Updated to PROJECTED OUTCOMES -->
+            <div class="outcomes-box">
+                <div class="section-subtitle">PROJECTED OUTCOMES</div>
+                <div class="workshop-stats" style="margin-top: 1rem;">
+                    <div>
+                        <div class="stat-number">33%</div>
+                        <div style="color: #2c4b4f;">Reduction in tool switching</div>
+                    </div>
+                    <div>
+                        <div class="stat-number">27%</div>
+                        <div style="color: #2c4b4f;">Increase in Customer Satisfaction</div>
+                    </div>
+                    <div>
+                        <div class="stat-number">4</div>
+                        <div style="color: #2c4b4f;">Reusable templates</div>
+                    </div>
+                </div>
+                <p style="color: #2c4b4f; max-width: 600px; margin: 1rem auto 0;">The Arena platform unified incident response across 14 Oracle Business Industries, reducing incident resolution time and improving customer communication during outages.</p>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer" aria-labelledby="footer-title">
+        <div class="site-footer__band">
+            <h2 id="footer-title" class="site-footer__title">Let's work together</h2>
+            <p class="site-footer__text">Check out my older <a class="footer-style-link" href="https://www.behance.net/deeporange" target="_blank" rel="noopener noreferrer">Behance Portfolio</a>, <a class="footer-style-link" href="https://www.linkedin.com/in/larissastarikova/" target="_blank" rel="noopener noreferrer">LinkedIn profile</a> and motion graphics on <a class="footer-style-link" href="https://vimeo.com/deeporange/videos" target="_blank" rel="noopener noreferrer">Vimeo</a>.<br>Resume is available upon request.<br>Looking forward to connecting!</p>
+
+            <div class="site-footer__social" aria-label="Get in touch">
+                <a class="social-link" href="https://www.linkedin.com/in/larissastarikova/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <img src="../images/shared/linkedin-logo.svg" alt="LinkedIn" class="social-icon">
+                </a>
+                <a class="social-link" href="https://www.behance.net/deeporange" target="_blank" rel="noopener noreferrer" aria-label="Behance">
+                    <img src="../images/shared/behance-good.png" alt="Behance" class="social-icon">
+                </a>
+                <a class="social-link" href="https://vimeo.com/deeporange/videos" target="_blank" rel="noopener noreferrer" aria-label="Vimeo">
+                    <img src="../images/shared/vimeo-logo.svg" alt="Vimeo" class="social-icon">
+                </a>
+                <a class="social-link" href="/cdn-cgi/l/email-protection#305c51425943435143445142705f45445c5f5f5b1e535f5d" aria-label="Email">
+                    <img src="../images/shared/email-icon.svg" alt="Email" class="social-icon">
+                </a>
+            </div>
+        </div>
+        <div class="site-footer__meta">
+            <p class="site-footer__disclaimer">All work presented here was created for my employers and is protected by copyright. It is shared here for viewing purposes only.</p>
+            <p class="site-footer__copyright">© 2026 Larissa Starikova · UX Lead &amp; AI Strategist / Senior Principal Designer</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js" defer></script>
+    <script>
+    (function() {
+        'use strict';
+        
+        var scroller = document.getElementById('sub-nav-cases-scroller');
+        var leftArrow = document.getElementById('sub-nav-cases-left');
+        var rightArrow = document.getElementById('sub-nav-cases-right');
+        var subNav = document.getElementById('sub-nav-cases');
+        
+        if (!scroller) return;
+        
+        function checkArrows() {
+            var hasOverflow = scroller.scrollWidth > scroller.clientWidth + 1;
+            var atStart = scroller.scrollLeft <= 2;
+            var atEnd = scroller.scrollLeft + scroller.clientWidth >= scroller.scrollWidth - 2;
+            
+            if (leftArrow) leftArrow.classList.toggle('is-visible', hasOverflow && !atStart);
+            if (rightArrow) rightArrow.classList.toggle('is-visible', hasOverflow && !atEnd);
+        }
+        
+        if (leftArrow) leftArrow.addEventListener('click', () => scroller.scrollBy({ left: -180, behavior: 'smooth' }));
+        if (rightArrow) rightArrow.addEventListener('click', () => scroller.scrollBy({ left: 180, behavior: 'smooth' }));
+        
+        scroller.addEventListener('scroll', checkArrows);
+        window.addEventListener('resize', checkArrows);
+        setTimeout(checkArrows, 100);
+        
+        function updateShadow() {
+            if (!subNav) return;
+            subNav.classList.toggle('has-shadow', window.scrollY > 8);
+        }
+        window.addEventListener('scroll', () => requestAnimationFrame(updateShadow), { passive: true });
+        updateShadow();
+    })();
+    </script>
+</body>
+</html>

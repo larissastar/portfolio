@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Data Integration Research Project — Larissa Starikova's UX portfolio case study">
+    <title>Larissa Starikova | Data Integration Research Project</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        /* Page-specific styles for Research Project */
+        .research-header {
+            background: #FCE4EC;
+            padding: 4rem 1.25rem 3rem;
+            text-align: center;
+        }
+        
+        .research-header__inner {
+            max-width: var(--max-w);
+            margin: 0 auto;
+        }
+        
+        .research-header__title {
+            font-size: clamp(1.6rem, 3vw, 2.1rem);
+            font-weight: 700;
+            color: #1a2a2e;
+            margin: 0 0 1rem;
+            letter-spacing: -0.01em;
+        }
+        
+        .research-header__subtitle {
+            font-size: 1.1rem;
+            color: #2c4b4f;
+            max-width: 760px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #1a2a2e;
+            margin: 0 0 0.5rem;
+            letter-spacing: -0.01em;
+        }
+        
+        .section-subtitle {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #385f64;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .problem-box-rounded {
+            background: #F3F8F5;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 16px;
+        }
+        
+        .problem-text {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #2c4b4f;
+            margin: 0;
+        }
+        
+        /* Continuous vertical bar list style */
+        .bullet-list-vertical-bar {
+            margin: 1rem 0 0;
+            padding-left: 1rem;
+            list-style: none;
+            color: #2c4b4f;
+            line-height: 1.6;
+            border-left: 3px solid #00a8a1;
+        }
+        
+        .bullet-list-vertical-bar li {
+            margin-bottom: 0.75rem;
+            padding-left: 0.75rem;
+        }
+        
+        .bullet-list-vertical-bar li:last-child {
+            margin-bottom: 0;
+        }
+        
+        .findings-intro {
+            margin: 1.5rem 0;
+        }
+        
+        .findings-intro p {
+            color: #2c4b4f;
+            line-height: 1.6;
+        }
+        
+        .image-single {
+            margin: 1.5rem 0;
+        }
+        
+        .image-single img {
+            width: 100%;
+            display: block;
+            border: 1px solid rgba(0,0,0,0.3);
+        }
+        
+        .image-row-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+        
+        @media (max-width: 768px) {
+            .image-row-2col {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+        }
+        
+        .image-row-2col img {
+            width: 100%;
+            display: block;
+            border: 1px solid rgba(0,0,0,0.3);
+        }
+        
+        .research-section {
+            margin: 3rem 0;
+        }
+        
+        .research-header-label {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1a2a2e;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #00a8a1;
+            display: inline-block;
+        }
+        
+        .outcomes-box {
+            background: #FCE4EC;
+            border-radius: 24px;
+            padding: 2rem;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        
+        .outcomes-box p {
+            color: #2c4b4f;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 0 1.25rem;
+        }
+    </style>
+</head>
+<body>
+
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- Main Navigation -->
+    <nav class="main-nav" aria-label="Primary">
+        <div class="main-nav__inner">
+            <div style="display:flex; align-items:center; gap:.25rem;">
+                <button id="menu-toggle" class="menu-toggle" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <line x1="4" y1="6" x2="20" y2="6"></line>
+                        <line x1="4" y1="12" x2="20" y2="12"></line>
+                        <line x1="4" y1="18" x2="20" y2="18"></line>
+                    </svg>
+                </button>
+                <a href="../index.html" class="main-nav__brand" style="text-decoration:none; color:inherit;">
+                    Larissa Starikova
+                    <span class="main-nav__brand-divider" style="color: rgb(255, 255, 255); opacity: 0.8">| UX Portfolio</span>
+                </a>
+            </div>
+
+            <ul class="main-nav__links" role="menubar">
+                <li role="none"><a href="../index.html" role="menuitem" class="main-nav__link">About</a></li>
+                <li role="none"><a href="../design-ai.html" role="menuitem" class="main-nav__link">Design With AI</a></li>
+                <li role="none"><a href="../selected-work/index.html" role="menuitem" class="main-nav__link">Selected Work</a></li>
+                <li role="none"><a href="index.html" role="menuitem" class="main-nav__link is-active" aria-current="page">Use Cases &amp; Process</a></li>
+            </ul>
+
+            <div class="main-nav__social" aria-label="External profiles">
+                <a class="social-link" href="https://www.linkedin.com/in/larissastarikova/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <img src="../images/shared/linkedin-logo.svg" alt="LinkedIn" class="social-icon">
+                </a>
+                <a class="social-link" href="https://www.behance.net/deeporange" target="_blank" rel="noopener noreferrer" aria-label="Behance">
+                    <img src="../images/shared/behance-good.png" alt="Behance" class="social-icon">
+                </a>
+                <a class="social-link" href="https://vimeo.com/deeporange/videos" target="_blank" rel="noopener noreferrer" aria-label="Vimeo">
+                    <img src="../images/shared/vimeo-logo.svg" alt="Vimeo" class="social-icon">
+                </a>
+                <a class="social-link" href="/cdn-cgi/l/email-protection#305c51425943435143445142705f45445c5f5f5b1e535f5d" aria-label="Email">
+                    <img src="../images/shared/email-icon.svg" alt="Email" class="social-icon">
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu" role="dialog" aria-modal="true" aria-label="Site menu">
+        <div class="mobile-menu__head">
+            <div class="mobile-menu__brand">
+                <div class="mobile-menu__brand-name">Larissa Starikova</div>
+                <div class="mobile-menu__brand-sub">UX Portfolio</div>
+            </div>
+            <button id="mobile-menu-close" class="mobile-menu__close" aria-label="Close menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+        <ul class="mobile-menu__list">
+            <li><a href="../index.html" class="mobile-menu__link">About</a></li>
+            <li><a href="../design-ai.html" class="mobile-menu__link">Design With AI</a></li>
+            <li><a href="../selected-work/index.html" class="mobile-menu__link">Selected Work</a></li>
+            <li><a href="index.html" class="mobile-menu__link is-active" aria-current="page">Use Cases &amp; Process</a></li>
+        </ul>
+    </div>
+
+    <!-- Sub-Navigation -->
+    <nav id="sub-nav-cases" class="sub-nav is-visible" aria-label="Use cases and process">
+        <div class="sub-nav__inner">
+            <button id="sub-nav-cases-left" class="sub-nav__arrow sub-nav__arrow--left" aria-label="Scroll left" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <div id="sub-nav-cases-scroller" class="sub-nav__scroller">
+                <ul class="sub-nav__list">
+                    <li><a href="index.html" class="sub-nav__link">Overview</a></li>
+                    <li><a href="cloud-reliability.html" class="sub-nav__link">Cloud Reliability Platform</a></li>
+                    <li><a href="inventory.html" class="sub-nav__link">Inventory Management</a></li>
+                    <li><a href="research.html" class="sub-nav__link is-active" aria-current="page">Research Project</a></li>
+                </ul>
+            </div>
+            <button id="sub-nav-cases-right" class="sub-nav__arrow sub-nav__arrow--right" aria-label="Scroll right" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+        </div>
+    </nav>
+
+    <main id="main">
+
+        <!-- Top Section -->
+        <section class="research-header">
+            <div class="research-header__inner">
+                <h1 class="research-header__title">Data Integration Research Project</h1>
+                <p class="research-header__subtitle">This UX research project focused on Oracle Cloud Infrastructure (OCI) Data Integration, aiming to uncover user needs, pain points, and opportunities for improving the product experience. Through interviews with five participants, we gathered qualitative insights into real user workflows and challenges.</p>
+            </div>
+        </section>
+
+        <div class="container" style="padding: 1rem 1.25rem 3rem;">
+            
+            <!-- My Role Section - with single continuous vertical teal bar -->
+            <div class="problem-box-rounded">
+                <div class="section-subtitle">MY ROLE</div>
+                <p class="problem-text">I led the research effort end-to-end, ensuring alignment between design, product, and engineering teams. My responsibilities included:</p>
+                <ul class="bullet-list-vertical-bar">
+                    <li>Overseeing the research project and guiding the design direction</li>
+                    <li>Collaborating with the product team to set up the testing environment</li>
+                    <li>Identifying and recruiting participants</li>
+                    <li>Partnering with Product Management and Architects to define research tasks</li>
+                    <li>Observing and facilitating user interviews</li>
+                    <li>Analyzing research findings to extract key insights</li>
+                    <li>Working closely with the product designer to develop actionable recommendations</li>
+                </ul>
+            </div>
+
+            <!-- RESEARCH FINDINGS Section - using same header style as other sections -->
+            <div class="research-section">
+                <div class="research-header-label">Research Findings</div>
+                <div class="findings-intro">
+                    <p>These slides highlight a selection of key findings from a larger research study. The full 54‑page report synthesizes insights from in-depth participant interviews, focusing on user workflows, challenges, and opportunities for improving the experience.</p>
+                </div>
+                
+                <!-- Intro image - single row -->
+                <div class="image-single">
+                    <img src="../images/use-cases/research/research-intro-1.png" alt="Research introduction slide">
+                </div>
+                
+                <!-- Two intro images in one row -->
+                <div class="image-row-2col">
+                    <img src="../images/use-cases/research/research-intro-goals.png" alt="Research goals overview">
+                    <img src="../images/use-cases/research/research-intro-participants.png" alt="Research participants overview">
+                </div>
+            </div>
+
+            <!-- Section: Overall Research Findings -->
+            <div class="research-section">
+                <div class="research-header-label">Overall Research Findings</div>
+                <div class="image-row-2col">
+                    <img src="../images/use-cases/research/research-overall-1.png" alt="Overall research finding 1">
+                    <img src="../images/use-cases/research/research-overall-2.png" alt="Overall research finding 2">
+                </div>
+                <div class="image-row-2col">
+                    <img src="../images/use-cases/research/research-overall-3.png" alt="Overall research finding 3">
+                    <img src="../images/use-cases/research/research-overall-4.png" alt="Overall research finding 4">
+                </div>
+            </div>
+
+            <!-- Section: Research findings: Specific Areas -->
+            <div class="research-section">
+                <div class="research-header-label">Research findings: Specific Areas</div>
+                <div class="image-row-2col">
+                    <img src="../images/use-cases/research/research-specific-1.png" alt="Specific area finding 1">
+                    <img src="../images/use-cases/research/research-specific-2.png" alt="Specific area finding 2">
+                </div>
+            </div>
+
+            <!-- Section: Research findings: Create Data Asset task -->
+            <div class="research-section">
+                <div class="research-header-label">Research findings: Create Data Asset task</div>
+                <div class="image-row-2col">
+                    <img src="../images/use-cases/research/research-data-1.png" alt="Create Data Asset finding 1">
+                    <img src="../images/use-cases/research/research-data-2.png" alt="Create Data Asset finding 2">
+                </div>
+                <div class="image-row-2col">
+                    <img src="../images/use-cases/research/research-data-3.png" alt="Create Data Asset finding 3">
+                    <img src="../images/use-cases/research/research-data-4.png" alt="Create Data Asset finding 4">
+                </div>
+            </div>
+
+            <!-- Section: Research findings: Create Data Loader Task -->
+            <div class="research-section">
+                <div class="research-header-label">Research findings: Create Data Loader Task</div>
+                <div class="image-row-2col">
+                    <img src="../images/use-cases/research/research-create-task-1.png" alt="Create Data Loader Task finding 1">
+                    <img src="../images/use-cases/research/research-create-task-2.png" alt="Create Data Loader Task finding 2">
+                </div>
+            </div>
+
+            <!-- Section: Recommendations -->
+            <div class="research-section">
+                <div class="research-header-label">Recommendations</div>
+                <div class="image-row-2col">
+                    <img src="../images/use-cases/research/research-recommend-1.png" alt="Recommendation 1">
+                    <img src="../images/use-cases/research/research-recommend-2.png" alt="Recommendation 2">
+                </div>
+            </div>
+
+            <!-- Bottom Section: Next step: Prioritization -->
+            <div class="outcomes-box">
+                <div class="section-subtitle">NEXT STEP: PRIORITIZATION</div>
+                <p>Based on the research findings, we collaborated with product and engineering to identify key areas for improvement and shape priorities. Focus areas included high-impact pain points such as data asset creation and data loader configuration, balancing user value with development effort.</p>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer" aria-labelledby="footer-title">
+        <div class="site-footer__band">
+            <h2 id="footer-title" class="site-footer__title">Let's work together</h2>
+            <p class="site-footer__text">Check out my older <a class="footer-style-link" href="https://www.behance.net/deeporange" target="_blank" rel="noopener noreferrer">Behance Portfolio</a>, <a class="footer-style-link" href="https://www.linkedin.com/in/larissastarikova/" target="_blank" rel="noopener noreferrer">LinkedIn profile</a> and motion graphics on <a class="footer-style-link" href="https://vimeo.com/deeporange/videos" target="_blank" rel="noopener noreferrer">Vimeo</a>.<br>Resume is available upon request.<br>Looking forward to connecting!</p>
+
+            <div class="site-footer__social" aria-label="Get in touch">
+                <a class="social-link" href="https://www.linkedin.com/in/larissastarikova/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <img src="../images/shared/linkedin-logo.svg" alt="LinkedIn" class="social-icon">
+                </a>
+                <a class="social-link" href="https://www.behance.net/deeporange" target="_blank" rel="noopener noreferrer" aria-label="Behance">
+                    <img src="../images/shared/behance-good.png" alt="Behance" class="social-icon">
+                </a>
+                <a class="social-link" href="https://vimeo.com/deeporange/videos" target="_blank" rel="noopener noreferrer" aria-label="Vimeo">
+                    <img src="../images/shared/vimeo-logo.svg" alt="Vimeo" class="social-icon">
+                </a>
+                <a class="social-link" href="/cdn-cgi/l/email-protection#305c51425943435143445142705f45445c5f5f5b1e535f5d" aria-label="Email">
+                    <img src="../images/shared/email-icon.svg" alt="Email" class="social-icon">
+                </a>
+            </div>
+        </div>
+        <div class="site-footer__meta">
+            <p class="site-footer__disclaimer">All work presented here was created for my employers and is protected by copyright. It is shared here for viewing purposes only.</p>
+            <p class="site-footer__copyright">© 2026 Larissa Starikova · UX Lead &amp; AI Strategist / Senior Principal Designer</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js" defer></script>
+    <script>
+    (function() {
+        'use strict';
+        
+        var scroller = document.getElementById('sub-nav-cases-scroller');
+        var leftArrow = document.getElementById('sub-nav-cases-left');
+        var rightArrow = document.getElementById('sub-nav-cases-right');
+        var subNav = document.getElementById('sub-nav-cases');
+        
+        if (!scroller) return;
+        
+        function checkArrows() {
+            var hasOverflow = scroller.scrollWidth > scroller.clientWidth + 1;
+            var atStart = scroller.scrollLeft <= 2;
+            var atEnd = scroller.scrollLeft + scroller.clientWidth >= scroller.scrollWidth - 2;
+            
+            if (leftArrow) leftArrow.classList.toggle('is-visible', hasOverflow && !atStart);
+            if (rightArrow) rightArrow.classList.toggle('is-visible', hasOverflow && !atEnd);
+        }
+        
+        if (leftArrow) leftArrow.addEventListener('click', () => scroller.scrollBy({ left: -180, behavior: 'smooth' }));
+        if (rightArrow) rightArrow.addEventListener('click', () => scroller.scrollBy({ left: 180, behavior: 'smooth' }));
+        
+        scroller.addEventListener('scroll', checkArrows);
+        window.addEventListener('resize', checkArrows);
+        setTimeout(checkArrows, 100);
+        
+        function updateShadow() {
+            if (!subNav) return;
+            subNav.classList.toggle('has-shadow', window.scrollY > 8);
+        }
+        window.addEventListener('scroll', () => requestAnimationFrame(updateShadow), { passive: true });
+        updateShadow();
+    })();
+    </script>
+</body>
+</html>

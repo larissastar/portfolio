@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Grocery Store Inventory Management — AI-Powered UX Case Study by Larissa Starikova">
+    <title>Larissa Starikova | Grocery Store Inventory Management</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        /* Page-specific styles for Inventory Management case study */
+        .inventory-header {
+            background: #E6F8FC;
+            padding: 4rem 1.25rem 3rem;
+            text-align: center;
+        }
+        
+        .inventory-header__inner {
+            max-width: var(--max-w);
+            margin: 0 auto;
+        }
+        
+        .inventory-header__title {
+            font-size: clamp(1.6rem, 3vw, 2.1rem);
+            font-weight: 700;
+            color: #1a2a2e;
+            margin: 0 0 0.5rem;
+            letter-spacing: -0.01em;
+        }
+        
+        .inventory-header__subtitle {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #385f64;
+            margin-bottom: 1rem;
+            letter-spacing: 0.02em;
+        }
+        
+        .inventory-header__overview {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #2c4b4f;
+            max-width: 760px;
+            margin: 0 auto;
+        }
+        
+        .inventory-header__small {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #2c4b4f;
+            max-width: 760px;
+            margin: 1rem auto 0;
+        }
+        
+        /* 1/3 - 2/3 Layout */
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: start;
+            max-width: var(--max-w);
+            margin: 0 auto;
+        }
+        
+        /* Image on left, text on right */
+        .content-wrapper--img-left {
+            grid-template-columns: 2fr 1fr;
+        }
+        
+        .content-wrapper--img-left .content-block {
+            order: 2;
+        }
+        
+        .content-wrapper--img-left .image-placeholder {
+            order: 1;
+        }
+        
+        /* Centered layout (no image/text split) */
+        .content-wrapper--img-center {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            max-width: var(--max-w);
+            margin: 0 auto;
+            text-align: left;
+        }
+        
+        .content-wrapper--img-center .content-block {
+            max-width: 100%;
+            text-align: left;
+        }
+        
+        .content-block__title {
+            font-size: clamp(1.4rem, 2.5vw, 1.75rem);
+            font-weight: 700;
+            color: #1a2a2e;
+            margin: 0 0 1rem;
+            letter-spacing: -0.01em;
+            line-height: 1.3;
+        }
+        
+        .content-block__text {
+            font-size: 1rem;
+            color: #2c4b4f;
+            line-height: 1.6;
+            margin: 0;
+        }
+        
+        .image-placeholder {
+            width: 100%;
+            height: auto;
+            display: block;
+            border: none;
+        }
+        
+        .content-section {
+            padding: 4rem 1.25rem;
+        }
+        
+        .outcomes-box {
+            background: #EFE6EE;
+            border-radius: 24px;
+            padding: 2rem;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        
+        .outcomes-box p {
+            color: #2c4b4f;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .section-subtitle {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #385f64;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .final-designs-section {
+            padding: 2rem 1.25rem 1rem;
+        }
+        
+        @media (max-width: 1024px) {
+            .content-wrapper,
+            .content-wrapper--img-left {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .content-wrapper--img-left .content-block,
+            .content-wrapper--img-left .image-placeholder {
+                order: unset;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- Main Navigation -->
+    <nav class="main-nav" aria-label="Primary">
+        <div class="main-nav__inner">
+            <div style="display:flex; align-items:center; gap:.25rem;">
+                <button id="menu-toggle" class="menu-toggle" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <line x1="4" y1="6" x2="20" y2="6"></line>
+                        <line x1="4" y1="12" x2="20" y2="12"></line>
+                        <line x1="4" y1="18" x2="20" y2="18"></line>
+                    </svg>
+                </button>
+                <a href="../index.html" class="main-nav__brand" style="text-decoration:none; color:inherit;">
+                    Larissa Starikova
+                    <span class="main-nav__brand-divider" style="color: rgb(255, 255, 255); opacity: 0.8">| UX Portfolio</span>
+                </a>
+            </div>
+
+            <ul class="main-nav__links" role="menubar">
+                <li role="none"><a href="../index.html" role="menuitem" class="main-nav__link">About</a></li>
+                <li role="none"><a href="../design-ai.html" role="menuitem" class="main-nav__link">Design With AI</a></li>
+                <li role="none"><a href="../selected-work/index.html" role="menuitem" class="main-nav__link">Selected Work</a></li>
+                <li role="none"><a href="index.html" role="menuitem" class="main-nav__link is-active" aria-current="page">Use Cases &amp; Process</a></li>
+            </ul>
+
+            <div class="main-nav__social" aria-label="External profiles">
+                <a class="social-link" href="https://www.linkedin.com/in/larissastarikova/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <img src="../images/shared/linkedin-logo.svg" alt="LinkedIn" class="social-icon">
+                </a>
+                <a class="social-link" href="https://www.behance.net/deeporange" target="_blank" rel="noopener noreferrer" aria-label="Behance">
+                    <img src="../images/shared/behance-good.png" alt="Behance" class="social-icon">
+                </a>
+                <a class="social-link" href="https://vimeo.com/deeporange/videos" target="_blank" rel="noopener noreferrer" aria-label="Vimeo">
+                    <img src="../images/shared/vimeo-logo.svg" alt="Vimeo" class="social-icon">
+                </a>
+                <a class="social-link" href="/cdn-cgi/l/email-protection#305c51425943435143445142705f45445c5f5f5b1e535f5d" aria-label="Email">
+                    <img src="../images/shared/email-icon.svg" alt="Email" class="social-icon">
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu" role="dialog" aria-modal="true" aria-label="Site menu">
+        <div class="mobile-menu__head">
+            <div class="mobile-menu__brand">
+                <div class="mobile-menu__brand-name">Larissa Starikova</div>
+                <div class="mobile-menu__brand-sub">UX Portfolio</div>
+            </div>
+            <button id="mobile-menu-close" class="mobile-menu__close" aria-label="Close menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+        <ul class="mobile-menu__list">
+            <li><a href="../index.html" class="mobile-menu__link">About</a></li>
+            <li><a href="../design-ai.html" class="mobile-menu__link">Design With AI</a></li>
+            <li><a href="../selected-work/index.html" class="mobile-menu__link">Selected Work</a></li>
+            <li><a href="index.html" class="mobile-menu__link is-active" aria-current="page">Use Cases &amp; Process</a></li>
+        </ul>
+    </div>
+
+    <!-- Sub-Navigation -->
+    <nav id="sub-nav-cases" class="sub-nav is-visible" aria-label="Use cases and process">
+        <div class="sub-nav__inner">
+            <button id="sub-nav-cases-left" class="sub-nav__arrow sub-nav__arrow--left" aria-label="Scroll left" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <div id="sub-nav-cases-scroller" class="sub-nav__scroller">
+                <ul class="sub-nav__list">
+                    <li><a href="index.html" class="sub-nav__link">Overview</a></li>
+                    <li><a href="cloud-reliability.html" class="sub-nav__link">Cloud Reliability Platform</a></li>
+                    <li><a href="inventory.html" class="sub-nav__link is-active" aria-current="page">Inventory Management</a></li>
+                    <li><a href="research.html" class="sub-nav__link">Research Project</a></li>
+                </ul>
+            </div>
+            <button id="sub-nav-cases-right" class="sub-nav__arrow sub-nav__arrow--right" aria-label="Scroll right" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+        </div>
+    </nav>
+
+    <main id="main">
+
+        <!-- Overview / Hero Section -->
+        <section class="inventory-header">
+            <div class="inventory-header__inner">
+                <h1 class="inventory-header__title">Grocery Store Inventory Management</h1>
+                <div class="inventory-header__subtitle">AI-Powered UX Case Study</div>
+                <p class="inventory-header__overview">I was the primary designer on this project, leading the end‑to‑end experience from research through final design. This project explores how AI‑assisted tools can support and streamline a structured UX process for Oracle Data Center Supply Chain Management products. At the same time, I examined how AI can be integrated into these products while recognizing its current limitations and risks.</p>
+                <p class="inventory-header__small">A simulated supply chain scenario highlighted challenges with an outdated inventory system, including over-ordering, product waste, and frequent stockouts during peak periods. AI tools supported research, synthesis, and early design exploration. The final solution was designed in Figma using the Oracle Redwood design system to align with enterprise constraints, following a mobile-first approach optimized for tablet use.</p>
+            </div>
+        </section>
+
+        <!-- 1. Defining Persona and User Goals - Image on right, text on left -->
+        <section class="content-section" style="background: #FFFFFF;">
+            <div class="content-wrapper">
+                <div class="content-block">
+                    <h2 class="content-block__title">Defining Persona and User Goals</h2>
+                    <p class="content-block__text">In this case, I mostly relied on AI tools to understand the domain space and define a persona. I applied Oracle's Clarity of Purpose method while doing so, focusing on defining goals and understanding the problem.</p>
+                </div>
+                <img class="image-placeholder" src="../images/use-cases/inventory/grocery-persona-1.png" alt="Persona and user goals definition">
+            </div>
+        </section>
+
+        <!-- 2. Understanding Domain space and Competitive Analysis - Image on left, text on right -->
+        <section class="content-section" style="background: #F3F8F5;">
+            <div class="content-wrapper content-wrapper--img-left">
+                <img class="image-placeholder" src="../images/use-cases/inventory/grocery-domain-2.png" alt="Domain space and competitive analysis">
+                <div class="content-block">
+                    <h2 class="content-block__title">Understanding Domain Space and Competitive Analysis</h2>
+                    <p class="content-block__text">I heavily used AI tools to understand the domain space (grocery store inventory products) and learn more about existing products, how AI can be used to improve them, and the current limitations or risks associated with AI in this space.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. User Flows, Identifying UI Elements, and Card Sort - Image on right, text on left -->
+        <section class="content-section" style="background: #D9E8E9;">
+            <div class="content-wrapper">
+                <div class="content-block">
+                    <h2 class="content-block__title">User Flows, Identifying UI Elements, and Card Sort</h2>
+                    <p class="content-block__text">By providing detailed prompts, I asked several AI tools to help define user flows, review suggested UI elements, and conduct a card sort exercise. I then analyzed the results and compared the differences between the outputs provided by each tool.</p>
+                </div>
+                <img class="image-placeholder" src="../images/use-cases/inventory/grocery-flows-3.png" alt="User flows and card sort exercise">
+            </div>
+        </section>
+
+        <!-- 4. AI sketches - Image on left, text on right -->
+        <section class="content-section" style="background: #FFFFFF;">
+            <div class="content-wrapper content-wrapper--img-left">
+                <img class="image-placeholder" src="../images/use-cases/inventory/grocery-ai-sketches-4.png" alt="AI generated sketches and wireframes">
+                <div class="content-block">
+                    <h2 class="content-block__title">AI Sketches</h2>
+                    <p class="content-block__text">I then used a few AI tools, including tools that specialize in UX and UI (Visily, Aura Build, and Subframe), to create wireframes and layouts based on what I had learned so far. Feel free to check some of these layouts. Please note that some of these projects cannot be easily shared. Additionally, these tools are updated on a regular basis, so the links may not work. A few static screenshots are included to show the results.<br><a href="https://app.visily.ai/projects/1383d8e0-4a3d-4df9-996e-a0e39df32e80/boards/2319693" target="_blank" rel="noopener noreferrer" class="inline-link">Visily AI clickable layouts</a><br><a href="https://www.aura.build/editor/0ab224da-50b3-449c-888a-1f8dff3f8a8a" target="_blank" rel="noopener noreferrer" class="inline-link">Aura Build clickable layouts</a></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Using Oracle Redwood Design System - Image on right, text on left -->
+        <section class="content-section" style="background: #EFE6EE;">
+            <div class="content-wrapper">
+                <div class="content-block">
+                    <h2 class="content-block__title">Using Oracle Redwood Design System</h2>
+                    <p class="content-block__text">I then reviewed Oracle's comprehensive Design System, Redwood, to see which established patterns and components I could use for my product. Below are screenshots of some potential components and templates I identified. Learn more about the <a href="https://redwood.oracle.com/" target="_blank" rel="noopener noreferrer" class="inline-link">Redwood Design System</a>.</p>
+                </div>
+                <img class="image-placeholder" src="../images/use-cases/inventory/grocery-design-system-5.png" alt="Oracle Redwood Design System components">
+            </div>
+        </section>
+
+        <!-- 6. Hand Sketches - Image on left, text on right -->
+        <section class="content-section" style="background: #FCE4EC;">
+            <div class="content-wrapper content-wrapper--img-left">
+                <img class="image-placeholder" src="../images/use-cases/inventory/grocery-hand-sketches-6.png" alt="Hand sketches before Figma design">
+                <div class="content-block">
+                    <h2 class="content-block__title">Hand Sketches</h2>
+                    <p class="content-block__text">After analyzing the AI sketches, Oracle Design System components, and everything I had learned, I drew a few sketches before starting to put together any designs in Figma.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Final Designs - Centered layout (image below text) -->
+        <section class="final-designs-section">
+            <div class="content-wrapper content-wrapper--img-center">
+                <div class="content-block">
+                    <h2 class="content-block__title">Final Designs</h2>
+                    <p class="content-block__text">I then started working in Figma using the established design system, as it was part of this exercise. A few final design screens are attached below.</p>
+                </div>
+                <img class="image-placeholder" src="../images/use-cases/inventory/grocery-final-7.png" alt="Final Figma designs">
+            </div>
+        </section>
+
+        <!-- Bottom Section: Project Findings -->
+        <div class="container" style="max-width: var(--max-w); margin: 0 auto; padding: 0 1.25rem;">
+            <div class="outcomes-box">
+                <div class="section-subtitle">PROJECT FINDINGS</div>
+                <p>Through this project, we learned that AI can speed up early research, persona creation, and ideation, but human oversight remains essential for validation and direction. AI outputs often need refinement since tools can be inconsistent or lack deeper context. Using multiple tools produced better results than relying on just one. Overall, AI is a valuable assistant that enhances, rather than replaces, human creativity and decision-making in UX design.</p>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer" aria-labelledby="footer-title">
+        <div class="site-footer__band">
+            <h2 id="footer-title" class="site-footer__title">Let's work together</h2>
+            <p class="site-footer__text">Check out my older <a class="footer-style-link" href="https://www.behance.net/deeporange" target="_blank" rel="noopener noreferrer">Behance Portfolio</a>, <a class="footer-style-link" href="https://www.linkedin.com/in/larissastarikova/" target="_blank" rel="noopener noreferrer">LinkedIn profile</a> and motion graphics on <a class="footer-style-link" href="https://vimeo.com/deeporange/videos" target="_blank" rel="noopener noreferrer">Vimeo</a>.<br>Resume is available upon request.<br>Looking forward to connecting!</p>
+
+            <div class="site-footer__social" aria-label="Get in touch">
+                <a class="social-link" href="https://www.linkedin.com/in/larissastarikova/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <img src="../images/shared/linkedin-logo.svg" alt="LinkedIn" class="social-icon">
+                </a>
+                <a class="social-link" href="https://www.behance.net/deeporange" target="_blank" rel="noopener noreferrer" aria-label="Behance">
+                    <img src="../images/shared/behance-good.png" alt="Behance" class="social-icon">
+                </a>
+                <a class="social-link" href="https://vimeo.com/deeporange/videos" target="_blank" rel="noopener noreferrer" aria-label="Vimeo">
+                    <img src="../images/shared/vimeo-logo.svg" alt="Vimeo" class="social-icon">
+                </a>
+                <a class="social-link" href="/cdn-cgi/l/email-protection#305c51425943435143445142705f45445c5f5f5b1e535f5d" aria-label="Email">
+                    <img src="../images/shared/email-icon.svg" alt="Email" class="social-icon">
+                </a>
+            </div>
+        </div>
+        <div class="site-footer__meta">
+            <p class="site-footer__disclaimer">All work presented here was created for my employers and is protected by copyright. It is shared here for viewing purposes only.</p>
+            <p class="site-footer__copyright">© 2026 Larissa Starikova · UX Lead &amp; AI Strategist / Senior Principal Designer</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js" defer></script>
+    <script>
+    (function() {
+        'use strict';
+        
+        var scroller = document.getElementById('sub-nav-cases-scroller');
+        var leftArrow = document.getElementById('sub-nav-cases-left');
+        var rightArrow = document.getElementById('sub-nav-cases-right');
+        var subNav = document.getElementById('sub-nav-cases');
+        
+        if (!scroller) return;
+        
+        function checkArrows() {
+            var hasOverflow = scroller.scrollWidth > scroller.clientWidth + 1;
+            var atStart = scroller.scrollLeft <= 2;
+            var atEnd = scroller.scrollLeft + scroller.clientWidth >= scroller.scrollWidth - 2;
+            
+            if (leftArrow) leftArrow.classList.toggle('is-visible', hasOverflow && !atStart);
+            if (rightArrow) rightArrow.classList.toggle('is-visible', hasOverflow && !atEnd);
+        }
+        
+        if (leftArrow) leftArrow.addEventListener('click', () => scroller.scrollBy({ left: -180, behavior: 'smooth' }));
+        if (rightArrow) rightArrow.addEventListener('click', () => scroller.scrollBy({ left: 180, behavior: 'smooth' }));
+        
+        scroller.addEventListener('scroll', checkArrows);
+        window.addEventListener('resize', checkArrows);
+        setTimeout(checkArrows, 100);
+        
+        function updateShadow() {
+            if (!subNav) return;
+            subNav.classList.toggle('has-shadow', window.scrollY > 8);
+        }
+        window.addEventListener('scroll', () => requestAnimationFrame(updateShadow), { passive: true });
+        updateShadow();
+    })();
+    </script>
+</body>
+</html>

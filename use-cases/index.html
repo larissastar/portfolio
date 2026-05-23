@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Use Cases & Process — Larissa Starikova's UX portfolio showcasing design methodology, leadership, and AI integration">
+    <title>Larissa Starikova | Use Cases & Process</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- Main Navigation -->
+    <nav class="main-nav" aria-label="Primary">
+        <div class="main-nav__inner">
+            <div style="display:flex; align-items:center; gap:.25rem;">
+                <button id="menu-toggle" class="menu-toggle" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <line x1="4" y1="6" x2="20" y2="6"></line>
+                        <line x1="4" y1="12" x2="20" y2="12"></line>
+                        <line x1="4" y1="18" x2="20" y2="18"></line>
+                    </svg>
+                </button>
+                <a href="../index.html" class="main-nav__brand" style="text-decoration:none; color:inherit;">
+                    Larissa Starikova
+                    <span class="main-nav__brand-divider" style="color: rgb(255, 255, 255); opacity: 0.8">| UX Portfolio</span>
+                </a>
+            </div>
+
+            <ul class="main-nav__links" role="menubar">
+                <li role="none"><a href="../index.html" role="menuitem" class="main-nav__link">About</a></li>
+                <li role="none"><a href="../design-ai.html" role="menuitem" class="main-nav__link">Design With AI</a></li>
+                <li role="none"><a href="../selected-work/index.html" role="menuitem" class="main-nav__link">Selected Work</a></li>
+                <li role="none"><a href="index.html" role="menuitem" class="main-nav__link is-active" aria-current="page">Use Cases &amp; Process</a></li>
+            </ul>
+
+            <div class="main-nav__social" aria-label="External profiles">
+                <a class="social-link" href="https://www.linkedin.com/in/larissastarikova/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <img src="../images/shared/linkedin-logo.svg" alt="LinkedIn" class="social-icon">
+                </a>
+                <a class="social-link" href="https://www.behance.net/deeporange" target="_blank" rel="noopener noreferrer" aria-label="Behance">
+                    <img src="../images/shared/behance-good.png" alt="Behance" class="social-icon">
+                </a>
+                <a class="social-link" href="https://vimeo.com/deeporange/videos" target="_blank" rel="noopener noreferrer" aria-label="Vimeo">
+                    <img src="../images/shared/vimeo-logo.svg" alt="Vimeo" class="social-icon">
+                </a>
+                <a class="social-link" href="/cdn-cgi/l/email-protection#305c51425943435143445142705f45445c5f5f5b1e535f5d" aria-label="Email">
+                    <img src="../images/shared/email-icon.svg" alt="Email" class="social-icon">
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu" role="dialog" aria-modal="true" aria-label="Site menu">
+        <div class="mobile-menu__head">
+            <div class="mobile-menu__brand">
+                <div class="mobile-menu__brand-name">Larissa Starikova</div>
+                <div class="mobile-menu__brand-sub">UX Portfolio</div>
+            </div>
+            <button id="mobile-menu-close" class="mobile-menu__close" aria-label="Close menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+        <ul class="mobile-menu__list">
+            <li><a href="../index.html" class="mobile-menu__link">About</a></li>
+            <li><a href="../design-ai.html" class="mobile-menu__link">Design With AI</a></li>
+            <li><a href="../selected-work/index.html" class="mobile-menu__link">Selected Work</a></li>
+            <li><a href="index.html" class="mobile-menu__link is-active" aria-current="page">Use Cases &amp; Process</a></li>
+        </ul>
+    </div>
+
+    <!-- Sub-Navigation -->
+    <nav id="sub-nav-cases" class="sub-nav is-visible" aria-label="Use cases and process">
+        <div class="sub-nav__inner">
+            <button id="sub-nav-cases-left" class="sub-nav__arrow sub-nav__arrow--left" aria-label="Scroll left" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <div id="sub-nav-cases-scroller" class="sub-nav__scroller">
+                <ul class="sub-nav__list">
+                    <li><a href="index.html" class="sub-nav__link is-active" aria-current="page">Overview</a></li>
+                    <li><a href="cloud-reliability.html" class="sub-nav__link">Cloud Reliability Platform</a></li>
+                    <li><a href="inventory.html" class="sub-nav__link">Inventory Management</a></li>
+                    <li><a href="research.html" class="sub-nav__link">Research Project</a></li>
+                </ul>
+            </div>
+            <button id="sub-nav-cases-right" class="sub-nav__arrow sub-nav__arrow--right" aria-label="Scroll right" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main">
+
+        <!-- Overview / Hero -->
+        <section class="content-hero">
+            <h2 class="content-hero__title">UX Process and Use Cases</h2>
+            <p class="content-hero__paragraph">Every organization and project presents unique challenges, goals, and constraints, so my design process adapts to fit the problem. This section highlights key use cases that demonstrate how I apply these methods in practice, along with the research techniques and design processes that my teams and I have refined over the years.</p>
+            <p class="content-hero__paragraph">Since 2025, I've integrated AI‐powered tools into the design process. As UX practices and ways of working rapidly evolve alongside AI, I continuously adapt how UX teams operate to ensure both efficiency and quality. See the <a href="inventory.html" class="inline-link">Design with AI</a> section for examples.</p>
+        </section>
+
+        <!-- 1. AI for UX -->
+        <section class="content-section bg-warm-cream">
+            <div class="content-wrapper">
+                <div class="content-block">
+                    <h2 class="content-block__title">AI for UX</h2>
+                    <p class="content-block__text">Using AI tools is still new for everyone, but my team and I have been successfully using them for research, design exploration, prototyping, understanding requirements, and interviewing users. This has helped us streamline our processes and allowed us to focus more on solving creative and complex problems. See more <a href="../design-ai.html" class="inline-link">Design with AI</a></p>
+                </div>
+                <img class="image-placeholder" src="../images/use-cases/overview/ai.png" alt="AI tools in UX workflow">
+            </div>
+        </section>
+
+        <!-- 2. Defining User Problems & Goals -->
+        <section class="content-section bg-muted-teal">
+            <div class="content-wrapper content-wrapper--img-left">
+                <div class="content-block">
+                    <h2 class="content-block__title">Defining User Problems & Goals</h2>
+                    <p class="content-block__text">The first step for successful UX is clearly understanding the problem space and aligning on measurable user objectives. This foundation keeps every decision purposeful, focused, and user-centered.</p>
+                </div>
+                <img class="image-placeholder" src="../images/use-cases/overview/goals.png" alt="Defining user problems and goals framework">
+            </div>
+        </section>
+
+        <!-- 3. Workshops & Interviews -->
+        <section class="content-section bg-soft-pink">
+            <div class="content-wrapper content-wrapper--img-center">
+                <div class="content-block">
+                    <h2 class="content-block__title">Workshops & Interviews</h2>
+                    <p class="content-block__text">Through structured workshops and interviews with key stakeholders and end users, teams gain a shared, aligned understanding of the product, requirements, and goals.</p>
+                </div>
+                <img class="image-placeholder" src="../images/use-cases/overview/workshop.png" alt="Workshop sticky notes collaboration">
+            </div>
+        </section>
+
+        <!-- 4. Workflow scripts and user flows -->
+        <section class="content-section bg-warm-cream">
+            <div class="content-wrapper content-wrapper--img-left">
+                <div class="content-block">
+                    <h2 class="content-block__title">Workflow scripts and user flows</h2>
+                    <p class="content-block__text">User‐flow diagrams and scripts visualize complex systems and highlight key journeys, while workflow scripts distill those journeys into clear, step‐by‐step interactions that guide optimal UX/UI patterns and align teams before high‐fidelity design begins.</p>
+                </div>
+                <img class="image-placeholder" src="../images/use-cases/overview/script.png" alt="User flow diagrams and workflow scripts">
+            </div>
+        </section>
+
+        <!-- 5. Persona Creation -->
+        <section class="content-section bg-white">
+            <div class="content-wrapper">
+                <div class="content-block">
+                    <h2 class="content-block__title">Persona Creation</h2>
+                    <p class="content-block__text">Personas ground the design process in real user needs, guide persona-specific layout decisions, establish information hierarchy, and highlight differences in user journeys and mental models.</p>
+                </div>
+                <img class="image-placeholder" src="../images/use-cases/overview/personas.png" alt="User persona examples">
+            </div>
+        </section>
+
+        <!-- 6. Gathering and Understanding Requirements -->
+        <section class="content-section bg-soft-lavender">
+            <div class="content-wrapper content-wrapper--img-left">
+                <div class="content-block">
+                    <h2 class="content-block__title">Gathering and Understanding Requirements</h2>
+                    <p class="content-block__text">Gathering and understanding requirements is a core design phase that involves leading stakeholder alignment meetings, reviewing existing documentation and legacy systems, using UX‐friendly templates to translate business needs into actionable constraints, and collaborating closely with product and engineering to fill gaps and clarify ambiguity.</p>
+                </div>
+                <img class="image-placeholder" src="../images/use-cases/overview/meeting.png" alt="Stakeholder alignment meeting for requirements gathering">
+            </div>
+        </section>
+
+        <!-- 7. Competitive Analysis (Bleed Right) -->
+        <section class="content-section bg-sky-blue content-section--bleed-right">
+            <div class="content-wrapper content-wrapper--bleed">
+                <div class="content-block">
+                    <h2 class="content-block__title">Competitive Analysis</h2>
+                    <p class="content-block__text">Evaluating how similar problems are solved across the market is essential for identifying industry standards, uncovering innovation opportunities, and delivering differentiated, user-centric solutions.</p>
+                </div>
+                <img class="image-placeholder" src="../images/use-cases/overview/analysis.png" alt="Competitive analysis matrix">
+            </div>
+        </section>
+
+        <!-- 8. Sketching and Design Explorations -->
+        <section class="content-section bg-subtle-mint">
+            <div class="content-wrapper content-wrapper--img-left">
+                <div class="content-block">
+                    <h2 class="content-block__title">Sketching and Design Explorations</h2>
+                    <p class="content-block__text">Before moving into digital tools, I sketch concepts on paper or whiteboards to quickly explore ideas. More recently, I've begun using AI tools and well‐crafted prompts to generate and iterate on sketches during this early exploration phase. See some <a href="inventory.html" class="inline-link">AI sketches</a> here.</p>
+                </div>
+                <img class="image-placeholder" src="../images/use-cases/overview/sketches.png" alt="Paper sketches and AI-generated design explorations">
+            </div>
+        </section>
+
+        <!-- 9. Usability Testing & Surveys -->
+        <section class="content-section bg-soft-pink">
+            <div class="content-wrapper">
+                <div class="content-block">
+                    <h2 class="content-block__title">Usability Testing & Surveys</h2>
+                    <p class="content-block__text">Usability testing provides direct qualitative insight to validate assumptions and refine the experience. Targeted surveys add quantitative scale, together offering a balanced view of user needs, behaviors, and satisfaction across product stages.</p>
+                </div>
+                <img class="image-placeholder" src="../images/use-cases/overview/tests.png" alt="Usability testing and survey results">
+            </div>
+        </section>
+
+        <!-- 10. Specs & Annotations -->
+        <section class="content-section bg-pale-sage">
+            <div class="content-wrapper content-wrapper--img-left">
+                <div class="content-block">
+                    <h2 class="content-block__title">Specs & Annotations</h2>
+                    <p class="content-block__text">I have extensive experience delivering highly detailed annotations and standards documentation, tailoring each project to its unique requirements. As AI becomes integrated into design workflows, the way teams handle deliverables is evolving, making it essential to keep processes aligned with this new environment.</p>
+                </div>
+                <img class="image-placeholder" src="../images/use-cases/overview/annotations.png" alt="Design specs and annotations documentation">
+            </div>
+        </section>
+
+        <!-- 11. High-fidelity designs & Wireframes -->
+        <section class="content-section bg-white">
+            <div class="content-wrapper">
+                <div class="content-block">
+                    <h2 class="content-block__title">High-fidelity designs & Wireframes</h2>
+                    <p class="content-block__text">Please explore this portfolio to see examples of high-fidelity designs, wireframes, and rapid prototypes, including those created with AI tools. You can find additional examples in my previous Behance portfolio.</p>
+                </div>
+                <img class="image-placeholder" src="../images/use-cases/overview/high-fidelity.png" alt="High-fidelity UI designs and wireframes">
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer" aria-labelledby="footer-title">
+        <div class="site-footer__band">
+            <h2 id="footer-title" class="site-footer__title">Let's work together</h2>
+            <p class="site-footer__text">Check out my older <a class="footer-style-link" href="https://www.behance.net/deeporange" target="_blank" rel="noopener noreferrer">Behance Portfolio</a>, <a class="footer-style-link" href="https://www.linkedin.com/in/larissastarikova/" target="_blank" rel="noopener noreferrer">LinkedIn profile</a> and motion graphics on <a class="footer-style-link" href="https://vimeo.com/deeporange/videos" target="_blank" rel="noopener noreferrer">Vimeo</a>.<br>Resume is available upon request.<br>Looking forward to connecting!</p>
+
+            <div class="site-footer__social" aria-label="Get in touch">
+                <a class="social-link" href="https://www.linkedin.com/in/larissastarikova/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <img src="../images/shared/linkedin-logo.svg" alt="LinkedIn" class="social-icon">
+                </a>
+                <a class="social-link" href="https://www.behance.net/deeporange" target="_blank" rel="noopener noreferrer" aria-label="Behance">
+                    <img src="../images/shared/behance-good.png" alt="Behance" class="social-icon">
+                </a>
+                <a class="social-link" href="https://vimeo.com/deeporange/videos" target="_blank" rel="noopener noreferrer" aria-label="Vimeo">
+                    <img src="../images/shared/vimeo-logo.svg" alt="Vimeo" class="social-icon">
+                </a>
+                <a class="social-link" href="/cdn-cgi/l/email-protection#305c51425943435143445142705f45445c5f5f5b1e535f5d" aria-label="Email">
+                    <img src="../images/shared/email-icon.svg" alt="Email" class="social-icon">
+                </a>
+            </div>
+        </div>
+        <div class="site-footer__meta">
+            <p class="site-footer__disclaimer">All work presented here was created for my employers and is protected by copyright. It is shared here for viewing purposes only.</p>
+            <p class="site-footer__copyright">&copy; 2026 Larissa Starikova &middot; UX Lead &amp; AI Strategist / Senior Principal Designer</p>
+        </div>
+    </footer>
+
+    <!-- Cloudflare Email Protection -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    
+    <!-- Shared Main Script -->
+    <script src="../js/main.js" defer></script>
+    
+    <!-- Sub-nav scroll functionality and shadow -->
+    <script>
+    (function() {
+        'use strict';
+        
+        var scroller = document.getElementById('sub-nav-cases-scroller');
+        var leftArrow = document.getElementById('sub-nav-cases-left');
+        var rightArrow = document.getElementById('sub-nav-cases-right');
+        var subNav = document.getElementById('sub-nav-cases');
+        
+        if (!scroller) return;
+        
+        function checkArrows() {
+            var hasOverflow = scroller.scrollWidth > scroller.clientWidth + 1;
+            var atStart = scroller.scrollLeft <= 2;
+            var atEnd = scroller.scrollLeft + scroller.clientWidth >= scroller.scrollWidth - 2;
+            
+            if (leftArrow) leftArrow.classList.toggle('is-visible', hasOverflow && !atStart);
+            if (rightArrow) rightArrow.classList.toggle('is-visible', hasOverflow && !atEnd);
+        }
+        
+        if (leftArrow) leftArrow.addEventListener('click', () => scroller.scrollBy({ left: -180, behavior: 'smooth' }));
+        if (rightArrow) rightArrow.addEventListener('click', () => scroller.scrollBy({ left: 180, behavior: 'smooth' }));
+        
+        scroller.addEventListener('scroll', checkArrows);
+        window.addEventListener('resize', checkArrows);
+        setTimeout(checkArrows, 100);
+        
+        function updateShadow() {
+            if (!subNav) return;
+            subNav.classList.toggle('has-shadow', window.scrollY > 8);
+        }
+        window.addEventListener('scroll', () => requestAnimationFrame(updateShadow), { passive: true });
+        updateShadow();
+    })();
+    </script>
+</body>
+</html>

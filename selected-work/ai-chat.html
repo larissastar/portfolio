@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI Chat — Larissa Starikova's UX portfolio case study">
+    <title>Larissa Starikova | AI Chat</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        /* Page-specific styles for AI Chat case study */
+        .ai-chat-header {
+            background: #FCE4EC;
+            padding: 4rem 1.25rem 3rem;
+            text-align: center;
+        }
+        
+        .ai-chat-header__inner {
+            max-width: var(--max-w);
+            margin: 0 auto;
+        }
+        
+        .ai-chat-header__title {
+            font-size: clamp(1.6rem, 3vw, 2.1rem);
+            font-weight: 700;
+            color: #1a2a2e;
+            margin: 0 0 1rem;
+            letter-spacing: -0.01em;
+        }
+        
+        .ai-chat-header__text {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #2c4b4f;
+            max-width: 760px;
+            margin: 0 auto;
+        }
+        
+        .ai-chat-header__small {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #2c4b4f;
+            max-width: 760px;
+            margin: 1rem auto 0;
+        }
+        
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #1a2a2e;
+            margin: 0 0 0.5rem;
+            letter-spacing: -0.01em;
+        }
+        
+        .section-subtitle {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #385f64;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        /* My Role Section */
+        .role-section-wrapper {
+            background: #FFFFFF;
+            padding: 2rem 1.25rem;
+        }
+        
+        .role-box {
+            background: #FDF6F0;
+            padding: 2rem;
+            margin: 0 auto;
+            border-radius: 16px;
+            max-width: var(--max-w);
+        }
+        
+        /* Continuous vertical bar list style */
+        .bullet-list-vertical-bar {
+            margin: 0;
+            padding-left: 1rem;
+            list-style: none;
+            color: #2c4b4f;
+            line-height: 1.4;
+            border-left: 3px solid #00a8a1;
+        }
+        
+        .bullet-list-vertical-bar li {
+            margin-bottom: 0.5rem;
+            padding-left: 0.75rem;
+        }
+        
+        .bullet-list-vertical-bar li:last-child {
+            margin-bottom: 0;
+        }
+        
+        .bullet-list-vertical-bar li strong {
+            font-weight: 700;
+            color: #1a2a2e;
+        }
+        
+        .image-row-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+        
+        @media (max-width: 768px) {
+            .image-row-2col {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+        }
+        
+        .image-row-2col img {
+            width: 100%;
+            display: block;
+            border: 1px solid rgba(0,0,0,0.3);
+        }
+        
+        .research-section {
+            margin: 3rem 0;
+        }
+        
+        .research-header-label {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1a2a2e;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #00a8a1;
+            display: inline-block;
+        }
+        
+        .section-description {
+            color: #2c4b4f;
+            margin: 1rem 0 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .outcomes-box {
+            background: #EFE6EE;
+            border-radius: 24px;
+            padding: 2rem;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        
+        .outcomes-box p {
+            color: #2c4b4f;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 0 1.25rem;
+        }
+    </style>
+</head>
+<body>
+
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- Main Navigation -->
+    <nav class="main-nav" aria-label="Primary">
+        <div class="main-nav__inner">
+            <div style="display:flex; align-items:center; gap:.25rem;">
+                <button id="menu-toggle" class="menu-toggle" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <line x1="4" y1="6" x2="20" y2="6"></line>
+                        <line x1="4" y1="12" x2="20" y2="12"></line>
+                        <line x1="4" y1="18" x2="20" y2="18"></line>
+                    </svg>
+                </button>
+                <a href="../index.html" class="main-nav__brand" style="text-decoration:none; color:inherit;">
+                    Larissa Starikova
+                    <span class="main-nav__brand-divider" style="color: rgb(255, 255, 255); opacity: 0.8">| UX Portfolio</span>
+                </a>
+            </div>
+
+            <ul class="main-nav__links" role="menubar">
+                <li role="none"><a href="../index.html" role="menuitem" class="main-nav__link">About</a></li>
+                <li role="none"><a href="../design-ai.html" role="menuitem" class="main-nav__link">Design With AI</a></li>
+                <li role="none"><a href="index.html" role="menuitem" class="main-nav__link is-active" aria-current="page">Selected Work</a></li>
+                <li role="none"><a href="../use-cases/" role="menuitem" class="main-nav__link">Use Cases &amp; Process</a></li>
+            </ul>
+
+            <div class="main-nav__social" aria-label="External profiles">
+                <a class="social-link" href="https://www.linkedin.com/in/larissastarikova/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <img src="../images/shared/linkedin-logo.svg" alt="LinkedIn" class="social-icon">
+                </a>
+                <a class="social-link" href="https://www.behance.net/deeporange" target="_blank" rel="noopener noreferrer" aria-label="Behance">
+                    <img src="../images/shared/behance-good.png" alt="Behance" class="social-icon">
+                </a>
+                <a class="social-link" href="https://vimeo.com/deeporange/videos" target="_blank" rel="noopener noreferrer" aria-label="Vimeo">
+                    <img src="../images/shared/vimeo-logo.svg" alt="Vimeo" class="social-icon">
+                </a>
+                <a class="social-link" href="/cdn-cgi/l/email-protection#305c51425943435143445142705f45445c5f5f5b1e535f5d" aria-label="Email">
+                    <img src="../images/shared/email-icon.svg" alt="Email" class="social-icon">
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu" role="dialog" aria-modal="true" aria-label="Site menu">
+        <div class="mobile-menu__head">
+            <div class="mobile-menu__brand">
+                <div class="mobile-menu__brand-name">Larissa Starikova</div>
+                <div class="mobile-menu__brand-sub">UX Portfolio</div>
+            </div>
+            <button id="mobile-menu-close" class="mobile-menu__close" aria-label="Close menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+        <ul class="mobile-menu__list">
+            <li><a href="../index.html" class="mobile-menu__link">About</a></li>
+            <li><a href="../design-ai.html" class="mobile-menu__link">Design With AI</a></li>
+            <li><a href="index.html" class="mobile-menu__link is-active" aria-current="page">Selected Work</a></li>
+            <li><a href="../use-cases/" class="mobile-menu__link">Use Cases &amp; Process</a></li>
+        </ul>
+    </div>
+
+    <!-- Sub-Navigation -->
+    <nav id="sub-nav-selected" class="sub-nav is-visible" aria-label="Selected work">
+        <div class="sub-nav__inner">
+            <button id="sub-nav-selected-left" class="sub-nav__arrow sub-nav__arrow--left" aria-label="Scroll left" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <div id="sub-nav-selected-scroller" class="sub-nav__scroller">
+                <ul class="sub-nav__list">
+                    <li><a href="index.html" class="sub-nav__link">Overview</a></li>
+                    <li><a href="passwordless.html" class="sub-nav__link">Passwordless</a></li>
+                    <li><a href="ai-chat.html" class="sub-nav__link is-active" aria-current="page">AI Chat</a></li>
+                    <li><a href="ai-products.html" class="sub-nav__link">AI Products</a></li>
+                    <li><a href="national-id.html" class="sub-nav__link">National ID</a></li>
+                    <li><a href="data-lake.html" class="sub-nav__link">Data Lake</a></li>
+                    <li><a href="data-center.html" class="sub-nav__link">Data Center Supply</a></li>
+                    <li><a href="templates.html" class="sub-nav__link">Templates</a></li>
+                </ul>
+            </div>
+            <button id="sub-nav-selected-right" class="sub-nav__arrow sub-nav__arrow--right" aria-label="Scroll right" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+        </div>
+    </nav>
+
+    <main id="main">
+
+        <!-- Top Section -->
+        <section class="ai-chat-header">
+            <div class="ai-chat-header__inner">
+                <h1 class="ai-chat-header__title">AI Chat</h1>
+                <p class="ai-chat-header__text">I inherited the AI Chat project after a reorganization, bringing it into my team along with the designer working on it. It was a complex, high-visibility effort that required strong alignment with multiple stakeholders and ongoing iteration.</p>
+                <p class="ai-chat-header__small">The work focused on shaping use cases, refining interaction patterns, and grounding design decisions in competitive analysis, while keeping the experience aligned with Oracle's design system and branding.</p>
+            </div>
+        </section>
+
+        <!-- ROLE & RESPONSIBILITIES Section -->
+        <div class="role-section-wrapper">
+            <div class="role-box">
+                <div class="section-subtitle">ROLE & RESPONSIBILITIES</div>
+                <ul class="bullet-list-vertical-bar">
+                    <li><strong>Design Manager</strong></li>
+                    <li>Led and supported designers in my team, providing guidance, feedback, and design direction</li>
+                    <li>Conducted design reviews to ensure quality and consistency with Oracle's design system</li>
+                    <li>Partnered with product managers and stakeholders to define priorities, scope, and user needs</li>
+                    <li>Managed intake and oversaw project delivery from initiation through completion</li>
+                    <li>Guided design decisions for complex, AI-driven experiences</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Section 1: AI Chat in Use -->
+        <div class="container">
+            <div class="research-section">
+                <div class="research-header-label">AI Chat in Use</div>
+                <p class="section-description">This section showcases the AI Chat experience integrated into Resource Explorer, highlighting how conversational interactions can support users in navigating and managing cloud resources. Resource Explorer is designed to help users quickly find, filter, and organize resources across Oracle Cloud Infrastructure, improving efficiency when working at scale.</p>
+                
+                <div class="image-row-2col">
+                    <img src="../images/selected-work/ai-chat/ao_01.png" alt="AI Chat in use screenshot 1">
+                    <img src="../images/selected-work/ai-chat/ao_02.png" alt="AI Chat in use screenshot 2">
+                </div>
+                <div class="image-row-2col">
+                    <img src="../images/selected-work/ai-chat/ao_03.png" alt="AI Chat in use screenshot 3">
+                    <img src="../images/selected-work/ai-chat/ao_04.png" alt="AI Chat in use screenshot 4">
+                </div>
+            </div>
+
+            <!-- Section 2: AI Chat Specs -->
+            <div class="research-section">
+                <div class="research-header-label">AI Chat Specs</div>
+                <p class="section-description">This section outlines the specifications, components, and design system elements used in the AI Chat interface, along with a portion of the engineering handoff documentation. The team worked closely with engineering through multiple touchpoints to ensure alignment, feasibility, and a smooth transition from design to implementation.</p>
+                
+                <div class="image-row-2col">
+                    <img src="../images/selected-work/ai-chat/ao_spec_01.png" alt="AI Chat specifications 1">
+                    <img src="../images/selected-work/ai-chat/ao_spec_02.png" alt="AI Chat specifications 2">
+                </div>
+                <div class="image-row-2col">
+                    <img src="../images/selected-work/ai-chat/ao_spec_03.png" alt="AI Chat specifications 3">
+                    <img src="../images/selected-work/ai-chat/ao_spec_04.png" alt="AI Chat specifications 4">
+                </div>
+                <div class="image-row-2col">
+                    <img src="../images/selected-work/ai-chat/ao_spec_05.png" alt="AI Chat specifications 5">
+                    <img src="../images/selected-work/ai-chat/ao_spec_06.png" alt="AI Chat specifications 6">
+                </div>
+                <div class="image-row-2col">
+                    <img src="../images/selected-work/ai-chat/ao_spec_07.png" alt="AI Chat specifications 7">
+                    <img src="../images/selected-work/ai-chat/ao_spec_08.png" alt="AI Chat specifications 8">
+                </div>
+            </div>
+
+            <!-- Key Insights Section -->
+            <div class="outcomes-box">
+                <div class="section-subtitle">KEY INSIGHTS</div>
+                <p>This work started as a traditional AI chat experience and began evolving into a more integrated, full-page product. The direction shifted toward supporting complex workflows, with a growing focus on AI-driven tasks, recommendations, and deeper integration across Oracle Cloud Infrastructure.</p>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer" aria-labelledby="footer-title">
+        <div class="site-footer__band">
+            <h2 id="footer-title" class="site-footer__title">Let's work together</h2>
+            <p class="site-footer__text">Check out my older <a class="footer-style-link" href="https://www.behance.net/deeporange" target="_blank" rel="noopener noreferrer">Behance Portfolio</a>, <a class="footer-style-link" href="https://www.linkedin.com/in/larissastarikova/" target="_blank" rel="noopener noreferrer">LinkedIn profile</a> and motion graphics on <a class="footer-style-link" href="https://vimeo.com/deeporange/videos" target="_blank" rel="noopener noreferrer">Vimeo</a>.<br>Resume is available upon request.<br>Looking forward to connecting!</p>
+
+            <div class="site-footer__social" aria-label="Get in touch">
+                <a class="social-link" href="https://www.linkedin.com/in/larissastarikova/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <img src="../images/shared/linkedin-logo.svg" alt="LinkedIn" class="social-icon">
+                </a>
+                <a class="social-link" href="https://www.behance.net/deeporange" target="_blank" rel="noopener noreferrer" aria-label="Behance">
+                    <img src="../images/shared/behance-good.png" alt="Behance" class="social-icon">
+                </a>
+                <a class="social-link" href="https://vimeo.com/deeporange/videos" target="_blank" rel="noopener noreferrer" aria-label="Vimeo">
+                    <img src="../images/shared/vimeo-logo.svg" alt="Vimeo" class="social-icon">
+                </a>
+                <a class="social-link" href="/cdn-cgi/l/email-protection#305c51425943435143445142705f45445c5f5f5b1e535f5d" aria-label="Email">
+                    <img src="../images/shared/email-icon.svg" alt="Email" class="social-icon">
+                </a>
+            </div>
+        </div>
+        <div class="site-footer__meta">
+            <p class="site-footer__disclaimer">All work presented here was created for my employers and is protected by copyright. It is shared here for viewing purposes only.</p>
+            <p class="site-footer__copyright">© 2026 Larissa Starikova · UX Lead &amp; AI Strategist / Senior Principal Designer</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js" defer></script>
+    <script>
+    (function() {
+        'use strict';
+        
+        var scroller = document.getElementById('sub-nav-selected-scroller');
+        var leftArrow = document.getElementById('sub-nav-selected-left');
+        var rightArrow = document.getElementById('sub-nav-selected-right');
+        var subNav = document.getElementById('sub-nav-selected');
+        
+        if (!scroller) return;
+        
+        function checkArrows() {
+            var hasOverflow = scroller.scrollWidth > scroller.clientWidth + 1;
+            var atStart = scroller.scrollLeft <= 2;
+            var atEnd = scroller.scrollLeft + scroller.clientWidth >= scroller.scrollWidth - 2;
+            
+            if (leftArrow) leftArrow.classList.toggle('is-visible', hasOverflow && !atStart);
+            if (rightArrow) rightArrow.classList.toggle('is-visible', hasOverflow && !atEnd);
+        }
+        
+        if (leftArrow) leftArrow.addEventListener('click', () => scroller.scrollBy({ left: -180, behavior: 'smooth' }));
+        if (rightArrow) rightArrow.addEventListener('click', () => scroller.scrollBy({ left: 180, behavior: 'smooth' }));
+        
+        scroller.addEventListener('scroll', checkArrows);
+        window.addEventListener('resize', checkArrows);
+        setTimeout(checkArrows, 100);
+        
+        function updateShadow() {
+            if (!subNav) return;
+            subNav.classList.toggle('has-shadow', window.scrollY > 8);
+        }
+        window.addEventListener('scroll', () => requestAnimationFrame(updateShadow), { passive: true });
+        updateShadow();
+    })();
+    </script>
+</body>
+</html>
