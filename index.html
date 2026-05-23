@@ -14,7 +14,7 @@
             background-blend-mode: overlay;
             background-repeat: repeat;
             color: #ffffff;
-            padding: 4rem 1.25rem;
+            padding: 3.2rem 1.25rem;
             text-align: center;
         }
         
@@ -28,36 +28,45 @@
             margin: 0 auto;
         }
         
+        .about-hero__header {
+            font-size: clamp(1.4rem, 2.5vw, 1.75rem);
+            font-weight: 700;
+            color: #ffffff;
+            margin: 0 0 1rem;
+            letter-spacing: -0.01em;
+            line-height: 1.3;
+        }
+        
         .about-hero__lead {
             font-size: 1.1rem;
             line-height: 1.6;
-            color: #ffffff;
+            color: #D9E8E9;
             margin: 0 0 1rem;
         }
         
         .about-hero__text {
             font-size: 1rem;
             line-height: 1.6;
-            color: #ffffff;
+            color: #D9E8E9;
             margin: 0 0 1rem;
         }
         
         .about-hero__email {
             font-size: 1rem;
             line-height: 1.6;
-            color: #ffffff;
+            color: #D9E8E9;
             margin: 0;
         }
         
         .about-hero__links {
             font-size: 1rem;
             line-height: 1.6;
-            color: #ffffff;
+            color: #D9E8E9;
             margin: 0.5rem 0 0;
         }
         
         .about-hero__links a {
-            color: #ffffff;
+            color: #D9E8E9;
             text-decoration: underline;
             text-underline-offset: 2px;
         }
@@ -65,11 +74,10 @@
         .about-hero__links a:hover {
             color: #ffffff;
             text-decoration: underline;
-            opacity: 0.8;
         }
         
         .about-hero__email a {
-            color: #ffffff;
+            color: #D9E8E9;
             text-decoration: underline;
             text-underline-offset: 2px;
         }
@@ -77,7 +85,58 @@
         .about-hero__email a:hover {
             color: #ffffff;
             text-decoration: underline;
+        }
+        
+        /* Reduce padding on about sections by 20% */
+        .about-section {
+            padding: 3.2rem 1.25rem;
+        }
+        
+        .about-section--leader {
+            position: relative;
+            background-color: var(--pastel-mint);
+            background-image: url('../images/textures/speckles.png');
+            background-blend-mode: multiply;
+            background-repeat: repeat;
+            z-index: 1;
+        }
+        
+        .about-section--leader::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: url('../images/textures/speckles.png');
+            background-blend-mode: multiply;
+            background-repeat: repeat;
+            opacity: 0.85;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .about-section--principal {
+            position: relative;
+            background-color: var(--pastel-peach);
+            background-image: url('../images/textures/mosaic.png');
+            background-blend-mode: multiply;
+            background-repeat: repeat;
+            z-index: 1;
+        }
+        
+        .about-section--principal::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: url('../images/textures/mosaic.png');
+            background-blend-mode: multiply;
+            background-repeat: repeat;
             opacity: 0.8;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .about-section__head {
+            text-align: center;
+            margin-bottom: 2rem;
         }
     </style>
 </head>
@@ -161,15 +220,15 @@
         <section class="about-hero">
             <div class="about-hero__inner">
                 <div class="about-hero__copy">
-                    <p class="about-hero__lead">I'm an award-winning UX lead with 20+ years of experience across a wide range of industries, with a recent focus on integrating AI into modern design workflows.</p>
-                    <p class="about-hero__text">This portfolio was built using a combination of AI tools for coding and content, including Claude Design, Figma Make, ChatGPT, and others.</p>
-                    <p class="about-hero__links">You can also explore my earlier work on <a href="https://www.behance.net/deeporange" target="_blank" rel="noopener noreferrer">Behance</a> and connect with me on <a href="https://www.linkedin.com/in/larissastarikova/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.</p>
+                    <h1 class="about-hero__header">About</h1>
+                    <p class="about-hero__lead">I'm an award-winning UX lead with 20+ years of experience across a wide range of industries, with a recent focus on integrating AI into modern design workflows. This portfolio was built using a combination of AI tools for coding and content.</p>
+                    <p class="about-hero__links">You can also explore my earlier work on <a href="https://www.behance.net/deeporange" target="_blank" rel="noopener noreferrer">Behance</a> and review my <a href="https://www.linkedin.com/in/larissastarikova/" target="_blank" rel="noopener noreferrer">LinkedIn profile</a>, recommendations and connect with me.</p>
                     <p class="about-hero__email">Email: <a href="mailto:larissastar@outlook.com">larissastar@outlook.com</a></p>
                 </div>
             </div>
         </section>
 
-        <!-- Section: Design Leader (mint pastel) -->
+        <!-- Section: Design Leader (mint pastel with speckles texture) -->
         <section class="about-section about-section--leader" aria-labelledby="leader-title">
             <div class="about-section__inner">
                 <header class="about-section__head">
@@ -220,7 +279,7 @@
             </div>
         </section>
 
-        <!-- Section: Senior Principal Designer (peach pastel) -->
+        <!-- Section: Senior Principal Designer (peach pastel with mosaic texture) -->
         <section class="about-section about-section--principal" aria-labelledby="principal-title">
             <div class="about-section__inner">
                 <header class="about-section__head">
@@ -294,7 +353,7 @@
         </div>
     </footer>
 
-    <!-- Shared Main Script (Handles mobile menu globally) -->
+    <!-- Shared Main Script -->
     <script src="js/main.js" defer></script>
 </body>
 </html>
