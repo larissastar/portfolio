@@ -7,17 +7,12 @@
     <title>Larissa Starikova | UX Portfolio</title>
     <link rel="stylesheet" href="css/style.css">
     <style>
-        /* Page-specific styles for About hero - matching footer texture method */
+        /* Page-specific styles for About hero - only text styling, no background overrides */
+        /* Background properties (color and texture) come from global css/style.css */
         .about-hero {
-            background-color: #447379;
-            background-image: url('../images/textures/cotton.png');
-            background-blend-mode: overlay;
-            background-repeat: repeat;
             color: #ffffff;
             padding: 3.2rem 1.25rem;
             text-align: center;
-            /* Add background-size to ensure texture displays properly */
-            background-size: auto;
         }
         
         .about-hero__inner {
@@ -163,7 +158,7 @@
     <!-- Main Content - About Page -->
     <main id="main">
 
-        <!-- About Hero -->
+        <!-- About Hero - background color and texture come from global CSS -->
         <section class="about-hero">
             <div class="about-hero__inner">
                 <div class="about-hero__copy">
