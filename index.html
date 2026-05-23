@@ -7,7 +7,7 @@
     <title>Larissa Starikova | UX Portfolio</title>
     <link rel="stylesheet" href="css/style.css">
     <style>
-        /* Page-specific styles for About hero */
+        /* Page-specific styles for About hero - only hero section overrides */
         .about-hero {
             background-color: #447379;
             background-image: url('../images/textures/cotton.png');
@@ -39,13 +39,6 @@
         
         .about-hero__lead {
             font-size: 1.1rem;
-            line-height: 1.6;
-            color: #D9E8E9;
-            margin: 0 0 1rem;
-        }
-        
-        .about-hero__text {
-            font-size: 1rem;
             line-height: 1.6;
             color: #D9E8E9;
             margin: 0 0 1rem;
@@ -87,51 +80,12 @@
             text-decoration: underline;
         }
         
-        /* Reduce padding on about sections by 20% */
+        /* DO NOT override about-section--leader or about-section--principal here */
+        /* They will use the textures from global CSS */
+        
+        /* Reduce padding on about sections by 20% only - keep textures from global CSS */
         .about-section {
             padding: 3.2rem 1.25rem;
-        }
-        
-        .about-section--leader {
-            position: relative;
-            background-color: var(--pastel-mint);
-            background-image: url('../images/textures/speckles.png');
-            background-blend-mode: multiply;
-            background-repeat: repeat;
-            z-index: 1;
-        }
-        
-        .about-section--leader::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background-image: url('../images/textures/speckles.png');
-            background-blend-mode: multiply;
-            background-repeat: repeat;
-            opacity: 0.85;
-            pointer-events: none;
-            z-index: -1;
-        }
-        
-        .about-section--principal {
-            position: relative;
-            background-color: var(--pastel-peach);
-            background-image: url('../images/textures/mosaic.png');
-            background-blend-mode: multiply;
-            background-repeat: repeat;
-            z-index: 1;
-        }
-        
-        .about-section--principal::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background-image: url('../images/textures/mosaic.png');
-            background-blend-mode: multiply;
-            background-repeat: repeat;
-            opacity: 0.8;
-            pointer-events: none;
-            z-index: -1;
         }
         
         .about-section__head {
@@ -144,9 +98,7 @@
 
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <!-- =====================================================
-         Main Navigation (SHARED COMPONENT)
-         ===================================================== -->
+    <!-- Main Navigation -->
     <nav class="main-nav" aria-label="Primary">
         <div class="main-nav__inner">
             <div style="display:flex; align-items:center; gap:.25rem;">
@@ -187,9 +139,7 @@
         </div>
     </nav>
 
-    <!-- =====================================================
-         Mobile Menu (SHARED COMPONENT)
-         ===================================================== -->
+    <!-- Mobile Menu -->
     <div id="mobile-menu" class="mobile-menu" role="dialog" aria-modal="true" aria-label="Site menu">
         <div class="mobile-menu__head">
             <div class="mobile-menu__brand">
@@ -211,9 +161,7 @@
         </ul>
     </div>
 
-    <!-- =====================================================
-         Main Content - About Page
-         ===================================================== -->
+    <!-- Main Content - About Page -->
     <main id="main">
 
         <!-- About Hero -->
@@ -228,7 +176,7 @@
             </div>
         </section>
 
-        <!-- Section: Design Leader (mint pastel with speckles texture) -->
+        <!-- Section: Design Leader (textures come from global CSS) -->
         <section class="about-section about-section--leader" aria-labelledby="leader-title">
             <div class="about-section__inner">
                 <header class="about-section__head">
@@ -279,7 +227,7 @@
             </div>
         </section>
 
-        <!-- Section: Senior Principal Designer (peach pastel with mosaic texture) -->
+        <!-- Section: Senior Principal Designer (textures come from global CSS) -->
         <section class="about-section about-section--principal" aria-labelledby="principal-title">
             <div class="about-section__inner">
                 <header class="about-section__head">
@@ -324,9 +272,7 @@
 
     </main>
 
-    <!-- =====================================================
-         Footer (SHARED COMPONENT)
-         ===================================================== -->
+    <!-- Footer -->
     <footer class="site-footer" aria-labelledby="footer-title">
         <div class="site-footer__band">
             <h2 id="footer-title" class="site-footer__title">Let's work together</h2>
