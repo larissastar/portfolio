@@ -9,7 +9,7 @@
     <style>
         /* Page-specific styles for case study - AA compliant colors */
         .case-header {
-            background: var(--bg-warm-cream);
+            background: #F3F8F5;
             padding: 3rem 1.25rem 3rem;
             text-align: center;
         }
@@ -60,29 +60,53 @@
             font-weight: 600;
         }
         
-        .problem-box-rounded {
-            background: #F3F8F5;
-            padding: 2rem;
-            margin: 2rem 0;
-            border-radius: 16px;
+        /* Role & Responsibilities Section */
+        .role-section-wrapper {
+            background: #FFFFFF;
+            padding: 2rem 1.25rem 0 1.25rem;
         }
         
-        .problem-text {
+        .role-box {
+            background: #FDF6F0;
+            padding: 2rem;
+            margin: 0 auto;
+            border-radius: 16px;
+            max-width: var(--max-w);
+        }
+        
+        .role-text {
             font-size: 1rem;
             line-height: 1.6;
             color: #2c4b4f;
-            margin: 0;
+            margin: 0 0 0.5rem;
+            font-weight: 600;
         }
         
-        .problem-text-italic {
-            font-style: italic;
-            color: #1a2a2e;
-            margin-top: 0.75rem;
+        /* Continuous vertical bar list style */
+        .bullet-list-vertical-bar {
+            margin: 0;
             padding-left: 1rem;
+            list-style: none;
+            color: #2c4b4f;
+            line-height: 1.4;
             border-left: 3px solid #00a8a1;
         }
         
-        /* Persona section - images without borders */
+        .bullet-list-vertical-bar li {
+            margin-bottom: 0.5rem;
+            padding-left: 0.75rem;
+        }
+        
+        .bullet-list-vertical-bar li:last-child {
+            margin-bottom: 0;
+        }
+        
+        .bullet-list-vertical-bar li strong {
+            font-weight: 700;
+            color: #1a2a2e;
+        }
+        
+        /* Persona section */
         .persona-stack {
             display: flex;
             flex-direction: column;
@@ -588,16 +612,31 @@
             </div>
         </section>
 
-        <div class="container" style="padding: 1rem 1.25rem 3rem;">
+        <!-- ROLE & RESPONSIBILITIES Section -->
+        <div class="role-section-wrapper">
+            <div class="role-box">
+                <div class="section-subtitle">ROLE & RESPONSIBILITIES</div>
+                <p class="role-text">Lead UX Designer</p>
+                <ul class="bullet-list-vertical-bar">
+                    <li>Led end-to-end design process</li>
+                    <li>Conducted interviews, workshops, user interviews, and usability testing with 20+ participants across business domains</li>
+                    <li>Defined personas and user goals based on research and requirements</li>
+                    <li>Collaborated closely with product owners, engineers, and scrum masters to align on direction and delivery</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="container" style="padding: 0 1.25rem 3rem;">
             
-            <!-- User Problem and Pitch - Text only in box -->
-            <div class="problem-box-rounded">
+            <!-- USER PROBLEM & PITCH Section - Matching Personas header style -->
+            <div style="margin: 3rem 0;">
                 <div class="section-subtitle">USER PROBLEM & PITCH</div>
-                <p class="problem-text">I worked closely with Product Management to define this problem statement before we presented the concept to leadership.</p>
-                <div class="problem-text-italic">"The cloud service teams are operating services with a portfolio of tools and services that support incident/change workflow, communications, visibility and insight. Interacting with individual tools leads to duplication of effort and inconsistency. Innovation by individual teams in this area rarely benefits other teams and organizations that are working to enhance customers' experience."</div>
+                <h2 class="section-title">User Problem</h2>
+                <p style="color: #2c4b4f; margin-bottom: 1rem; line-height: 1.6;">I worked closely with Product Management to define this problem statement before we presented the concept to leadership.</p>
+                <p style="color: #1a2a2e; font-style: italic; line-height: 1.6;">"The cloud service teams are operating services with a portfolio of tools and services that support incident/change workflow, communications, visibility and insight. Interacting with individual tools leads to duplication of effort and inconsistency. Innovation by individual teams in this area rarely benefits other teams and organizations that are working to enhance customers' experience."</p>
             </div>
             
-            <!-- Pitch Images below the box -->
+            <!-- Pitch Images below the section -->
             <div class="pitch-section">
                 <div class="pitch-header">Pitch visuals</div>
                 <div class="pitch-description">I was actively involved in presenting the pitch to leadership alongside the product and development teams, which led to project approval and funding.</div>
@@ -889,7 +928,7 @@
                 </div>
             </div>
 
-            <!-- Outcomes Summary - Updated to PROJECTED OUTCOMES -->
+            <!-- Outcomes Summary -->
             <div class="outcomes-box">
                 <div class="section-subtitle">PROJECTED OUTCOMES</div>
                 <div class="workshop-stats" style="margin-top: 1rem;">
