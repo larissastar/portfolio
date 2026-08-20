@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Data Lake — Larissa Starikova's UX portfolio case study">
-    <title>Larissa Starikova | Data Lake</title>
+    <meta name="description" content="Data Lakehouse — Larissa Starikova's UX portfolio case study">
+    <title>Larissa Starikova | Data Lakehouse & Big Data Products</title>
     <link rel="stylesheet" href="../css/style.css">
     <style>
         /* Page-specific styles for Data Lake case study */
@@ -193,7 +193,7 @@
             background: #EFE6EE;
             border-radius: 24px;
             padding: 2rem;
-            text-align: center;
+            text-align: left;
             margin: 3rem 0;
         }
         
@@ -202,6 +202,7 @@
             max-width: 700px;
             margin: 0 auto;
             line-height: 1.6;
+            text-align: left;
         }
         
         .container {
@@ -217,6 +218,45 @@
         }
         
         .inline-link:hover {
+            color: #0b0e0d;
+            text-decoration: underline;
+        }
+
+        /* Other Big Data Products - reused header style */
+        .other-products-header {
+            background: #F3F8F5;
+            padding: 2rem 1.25rem;
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .other-products-header__inner {
+            max-width: var(--max-w);
+            margin: 0 auto;
+        }
+        
+        .other-products-header__title {
+            font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+            font-weight: 700;
+            color: #1a2a2e;
+            margin: 0 0 0.75rem;
+        }
+        
+        .other-products-header__text {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #2c4b4f;
+            max-width: 760px;
+            margin: 0 auto;
+        }
+        
+        .other-products-header__text a.inline-link {
+            color: #2c4b4f;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+        
+        .other-products-header__text a.inline-link:hover {
             color: #0b0e0d;
             text-decoration: underline;
         }
@@ -315,18 +355,20 @@
 
     <main id="main">
 
-        <!-- Top Section -->
+        <!-- Top Section - Updated title and overview text, em-dashes removed -->
         <section class="data-lake-header">
             <div class="data-lake-header__inner">
-                <h1 class="data-lake-header__title">Data Lakehouse</h1>
-                <p class="data-lake-header__text">I led design for the OCI (Oracle Cloud Infrastructure) Data Lakehouse experience, collaborating closely with product, engineering, and architecture teams to define key workflows and user needs through competitive analysis and persona development. I produced a large volume of high-fidelity designs and led formal design reviews to shape the MVP, while also identifying key gaps and opportunities for future improvements. <a href="https://www.oracle.com/big-data/what-is-data-lakehouse/#what-is" target="_blank" rel="noopener noreferrer" class="inline-link">Learn more</a> about Data Lakehouse.<br>Multiple basic prototypes were created for internal design reviews to showcase several user flows.<br><a href="https://www.figma.com/proto/YQAYdTp1XtvBEZav2QFiys/Data-Lakehouse.-LA-release?node-id=4927-142179&p=f&viewport=1149%2C-1617%2C0.13&t=AQpnab9If8xXHkjk-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=4927%3A142179&page-id=4927%3A142178&show-proto-sidebar=1" target="_blank" rel="noopener noreferrer" class="inline-link">View one of the Figma prototypes.</a></p>
+                <h1 class="data-lake-header__title">Data Lakehouse and Big Data Products</h1>
+                <p class="data-lake-header__text">
+                    During my time at Oracle Cloud Infrastructure, I worked across several Big Data products including Data Integration, Data Catalog, Big Data, and Data Lakehouse. I was the primary designer for the OCI Data Lakehouse experience, collaborating closely with product, engineering, and architecture teams to define key workflows and user needs through competitive analysis and persona development. I produced a large volume of high-fidelity designs and led formal design reviews to shape the MVP, while also identifying key gaps and opportunities for future improvements. Learn more about <a href="https://www.oracle.com/big-data/what-is-data-lakehouse/#what-is" target="_blank" rel="noopener noreferrer" class="inline-link">Data Lakehouse</a>.<br>Multiple basic prototypes were created for internal design reviews to showcase several user flows.<br><a href="https://www.figma.com/proto/YQAYdTp1XtvBEZav2QFiys/Data-Lakehouse.-LA-release?node-id=4927-142179&p=f&viewport=1149%2C-1617%2C0.13&t=AQpnab9If8xXHkjk-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=4927%3A142179&page-id=4927%3A142178&show-proto-sidebar=1" target="_blank" rel="noopener noreferrer" class="inline-link">View one of the Figma prototypes.</a>
+                </p>
             </div>
         </section>
 
-        <!-- ROLE & RESPONSIBILITIES Section -->
+        <!-- ROLE & RESPONSIBILITIES Section - Added (DATA LAKEHOUSE) -->
         <div class="role-section-wrapper">
             <div class="role-box">
-                <div class="section-subtitle">ROLE & RESPONSIBILITIES</div>
+                <div class="section-subtitle">ROLE & RESPONSIBILITIES (DATA LAKEHOUSE)</div>
                 <ul class="bullet-list-vertical-bar">
                     <li><strong>Primary Designer</strong> leading end-to-end experience design for the product</li>
                     <li>Partnered closely with product managers, engineers, and architects to define direction and feasibility</li>
@@ -433,16 +475,66 @@
                     <img src="../images/selected-work/data-lake/lake_17.png" alt="Table creation stepper step 3">
                     <img src="../images/selected-work/data-lake/lake_18.png" alt="Table creation stepper step 4">
                 </div>
+                <!-- lake_19.png - now smaller, same size as other images -->
                 <div class="image-single-centered">
-                    <img src="../images/selected-work/data-lake/lake_19.png" alt="Table creation stepper final view">
+                    <img src="../images/selected-work/data-lake/lake_19.png" alt="Table creation stepper final view" style="max-width: 80%;">
                 </div>
             </div>
 
-            <!-- Key Insights Section -->
+            <!-- NEW SECTION: Other Big Data Products -->
+            <section class="other-products-header">
+                <div class="other-products-header__inner">
+                    <h2 class="other-products-header__title">Other Big Data Products</h2>
+                    <p class="other-products-header__text">
+                        During my time at Oracle Cloud Infrastructure, I worked on several Big Data products, including Data Integration, Data Catalog and Big Data. My focus was on adding new features, improving usability and strengthening core workflows across these products. 
+                        Learn more about <a href="https://www.youtube.com/watch?v=nY7mG2u6-Ew" target="_blank" rel="noopener noreferrer" class="inline-link">Data Catalog</a>, 
+                        <a href="https://www.youtube.com/watch?v=nbB9nX6hZLw" target="_blank" rel="noopener noreferrer" class="inline-link">Data Integration</a> and 
+                        <a href="https://www.oracle.com/big-data/big-data-service/" target="_blank" rel="noopener noreferrer" class="inline-link">Big Data</a>.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Section 1: Data Integration & Data Catalog overview -->
+            <div class="research-section">
+                <div class="research-header-label">Data Integration and Data Catalog Overview Pages</div>
+                <p class="section-description">One task involved designing actionable, informative, and clutter-free service overview pages driven entirely by user research and preferences.</p>
+                <div class="image-row-2col">
+                    <img src="../images/selected-work/data-lake/dis_01.png" alt="Data Integration overview page">
+                    <img src="../images/selected-work/data-lake/dcat-01.png" alt="Data Catalog overview page">
+                </div>
+            </div>
+
+            <!-- Section 2: Big Data UI -->
+            <div class="research-section">
+                <div class="research-header-label">Big Data UI</div>
+                <p class="section-description">A pair of user interface screens illustrating management and configuration settings for data clusters.</p>
+                <div class="image-row-2col">
+                    <img src="../images/selected-work/data-lake/bds-01.png" alt="Big Data UI management view">
+                    <img src="../images/selected-work/data-lake/bds-02.png" alt="Big Data UI configuration view">
+                </div>
+            </div>
+
+            <!-- Section 3: Data Catalog Lineage -->
+            <div class="research-section">
+                <div class="research-header-label">Data Catalog Lineage</div>
+                <p class="section-description">Data Catalog Lineage was a standout project. It required extensive user and stakeholder research to create a clear visual map of how data moves through an organization, essentially a visual "family tree".</p>
+                <div class="image-row-2col">
+                    <img src="../images/selected-work/data-lake/dcat-02.png" alt="Data Catalog Lineage view 1">
+                    <img src="../images/selected-work/data-lake/dcat-03.png" alt="Data Catalog Lineage view 2">
+                </div>
+                <div class="image-row-2col">
+                    <img src="../images/selected-work/data-lake/dcat-03.png" alt="Data Catalog Lineage view 3">
+                    <img src="../images/selected-work/data-lake/dcat-04.png" alt="Data Catalog Lineage view 4">
+                </div>
+            </div>
+
+            <!-- KEY INSIGHTS - Updated with new text -->
             <div class="outcomes-box">
                 <div class="section-subtitle">KEY INSIGHTS</div>
-                <p>Through this project, we learned that a unified data lakehouse experience significantly reduces the friction users face when working with data spread across multiple systems. The ~400 screens and high-fidelity prototype provided a solid foundation for the MVP, while formal design reviews helped align stakeholders and prioritize features. Post-MVP opportunities identified include deeper integrations, enhanced governance controls, and more intuitive data exploration tools to further empower users in their data journey.</p>
+                <p>Designing across OCI's big data ecosystem, Data Lakehouse, Data Catalog, Big Data Service, and Data Integration, meant dealing with more than the usual product design puzzles: huge datasets, tools that weren't built to talk to each other, and users ranging from data engineers to business analysts. The real challenge was making it all feel like one platform instead of a pile of separate ones.</p>
+                <p style="margin-top: 1rem;">Discovery and governance turned into big UX questions fast. When there's too much data to just browse, how do you help people find what they need and trust it? And moving data between services meant taking clunky, technical workflows and making them feel doable for people who weren't necessarily engineers.</p>
             </div>
+
         </div>
 
     </main>
